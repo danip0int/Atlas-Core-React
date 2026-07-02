@@ -1,5 +1,6 @@
 import { productos } from "../data/productos";
 import ProductoCard from "../components/ProductoCard";
+import Carrito from "../components/Carrito";
 
 function Membresia() {
   return (
@@ -10,6 +11,7 @@ function Membresia() {
     <ProductoCard key={producto.id} producto={producto} />
   ))}
 </div>
+<Carrito/>
 </div>
 )
 }
