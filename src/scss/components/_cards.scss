@@ -1,0 +1,110 @@
+@use "../utils/mixins" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: linear-gradient(
+  180deg,
+  rgba(64, 61, 57, 0.15) 0%,
+  rgba(58, 53, 49, 0.15) 100%
+);
+backdrop-filter: blur(2px);
+-webkit-backdrop-filter: blur(2px);
+border: 1px solid rgba(255, 255, 255, 0.02);
+  color: var(--color-text-main);
+  border-radius: 22px;
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease;
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    text-align: center;
+    padding: 1.8rem 1.5rem;
+  }
+  .card-body .btn-primary {
+    margin-top: 0.8rem;
+  }
+  .card-body .btn-primary {
+    align-self: center;
+  }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 20px 45px rgba(0, 0, 0, 0.6),
+      0 0 0 10px rgba(235, 94, 40, 0.45);
+
+    .card-img-top {
+      transform: scale(1.05);
+    }
+  }
+  .card-img-top {
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .card-text {
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .card-title {
+    margin: 0;
+  }
+
+/*TEXTO OCULTO CARDS INDEX*/
+
+.card-extra {
+  display: none;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.card-extra.visible {
+  display: block;
+}
+
+
+  /*RESPONSIVE*/
+
+  @include desktop-break {
+    height: auto;
+    width: 350px;
+    
+    .card-img-top {
+      height: 240px;
+    }
+    .card-body {
+      padding: 1.4rem 1.2rem;
+      gap: 0.9rem;
+    }
+  }
+
+  @include tablet-break {
+    min-height: 480px;
+
+    .card-img-top {
+      height: 280px;
+    }
+  }
+
+  @include mobile-break {
+    min-height: auto;
+    width: auto;
+
+    .card-img-top {
+      height: 220px;
+    }
+  }
+}

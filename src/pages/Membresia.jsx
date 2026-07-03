@@ -6,7 +6,7 @@ function Membresia() {
   return (
     <div>
   <h1>Membresia</h1>
-    <div>
+    <div className="productos-grid">
   {productos.map(producto => (
     <ProductoCard key={producto.id} producto={producto} />
   ))}

@@ -6,10 +6,19 @@ export const CarritoContext = createContext();
 const carritoReducer = (state, action) => {
     switch (action.type) {
         case 'AGREGAR':
-            
-        return[...state, action.payload]
-            
-        case 'ELIMINAR':
+            const existe = state.find(producto => producto.id === action.payload.id);
+            if (existe) {
+                return state.map( agregar => {
+                    if (agregar.id === existe.id ) {
+                       return {...action.payload, cantidad: agregar.cantidad + 1};
+                    }else{
+                        return agregar;
+                    }
+                } )
+            } else{
+                return [...state, {...action.payload, cantidad: 1}];
+            }
+     case 'ELIMINAR':
             return state.filter(item=> item.id !== action.payload.id);
 
             case 'VACIAR':
