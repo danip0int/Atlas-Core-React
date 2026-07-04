@@ -1,7 +1,34 @@
 import imgContacto from '../assets/crossfit.webp'
 import { BsWhatsapp, BsEnvelope, BsPeople, BsInstagram, BsFacebook } from 'react-icons/bs'
+import { useState } from 'react'
 
 function Contacto() {
+
+  const [campoNombre, setCampoNombre] = useState("")
+  const [campoEmail, setCampoEmail] = useState("")
+  const [campoTexto, setCampoTexto] = useState("")
+  const [errores, setErrores] = useState('')
+
+  const validar = () => {
+    const nuevosErrores = {}
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(campoEmail)
+    if (!campoNombre) nuevosErrores.nombre = 'El nombre es obligatorio'
+    if (!campoEmail || !emailValido) nuevosErrores.email = 'El email es obligatorio'
+    if (!campoTexto) nuevosErrores.mensaje = 'El mensaje es obligatorio'
+    return nuevosErrores
+  }
+
+  function handleSubmit (e) {
+    e.preventDefault()
+    const erroresEncontrados = validar()
+
+    if (Object.keys(erroresEncontrados).length > 0) {
+    setErrores(erroresEncontrados)
+} else {
+    console.log('Formulario enviado')
+}
+    
+  }
   return (
     <main>
       <section id="horarios">
@@ -14,11 +41,14 @@ function Contacto() {
           <div className="contacto-form">
             <h2>Contactános</h2>
             <p>Escribinos y te respondemos a la brevedad.</p>
-            <form>
-              <input type="text" placeholder="Nombre" id="input-nombre"/>
-              <input type="email" placeholder="Email" id="input-email"/>
-              <textarea placeholder="Mensaje" id="input-mensaje"></textarea>
-              <button type="submit" class="btn-primary btn-form" id="btn-enviar">Enviar</button>
+            <form onSubmit={handleSubmit}>
+              <input value={campoNombre} onChange={(e) => setCampoNombre(e.target.value)} type="text" placeholder="Nombre" id="input-nombre"/>
+               {errores.nombre && <p>{errores.nombre}</p>}
+              <input value={campoEmail} onChange={(e) => setCampoEmail(e.target.value)} type="email" placeholder="Email" id="input-email"/>
+               {errores.email && <p>{errores.email}</p>}
+              <textarea value={campoTexto} onChange={(e) => setCampoTexto(e.target.value)} placeholder="Mensaje" id="input-mensaje"></textarea>
+               {errores.mensaje&& <p>{errores.mensaje}</p>}
+              <button type="submit" className="btn-primary btn-form" id="btn-enviar">Enviar</button>
             </form>
           </div>
           <div className="contacto-img">
