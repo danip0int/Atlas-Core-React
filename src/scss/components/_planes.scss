@@ -1,19 +1,19 @@
 @use "../base/variables" as *;
 @use "../utils/mixins" as *;
 
-#carrito {
+.carrito {
   position: fixed;
   top: 0;
   right: -380px;
   width: 360px;
   height: 100vh;
   background: linear-gradient(
-  180deg,
-  rgba(64, 61, 57, 0.55) 0%,
-  rgba(58, 53, 49, 0.45) 100%
-);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
+    180deg,
+    rgba(64, 61, 57, 0.55) 0%,
+    rgba(58, 53, 49, 0.45) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 1.5rem;
   z-index: 9998;
@@ -33,27 +33,31 @@ backdrop-filter: blur(10px);
     color: var(--color-text-main);
   }
 
-  #carrito-plan, #carrito-extras {
+  .carrito-item {
+    color: white;
+    padding-top: 1.5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
 
     p {
-      background: var(--color-bg-soft);
+      background: var(--charcoal-brown);
       padding: 0.75rem 1rem;
       border-radius: $radius-sm;
       margin: 0;
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 0.85rem;
     }
   }
 
-  #carrito-total {
+  .carrito-total {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-accent);
   }
 
-   #formulario-contacto {
+  .formulario-contacto {
     display: none;
 
     &.visible {
@@ -63,39 +67,40 @@ backdrop-filter: blur(10px);
     }
   }
 
-  #campos-tarjeta,
-#campos-transferencia {
-  display: none;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: 100%;
-}
-input, select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: $radius-sm;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: var(--color-bg-soft);
-  color: var(--color-text-main);
-  font-size: 0.9rem;
-}
+  .campos-tarjeta,
+  .campos-transferencia {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  input,
+  select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: $radius-sm;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-soft);
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+  }
 
-label {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
+  label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
 
-h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-accent);
-  margin-bottom: 1rem;
-}
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-accent);
+    margin-bottom: 1rem;
+  }
 }
 
 .btn-toggle-carrito {
-  display: none;
+  display: flex;
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -126,15 +131,31 @@ h2 {
   font-size: 0.9rem;
   margin-left: 0.5rem;
   padding: 0;
-  
+
   &:hover {
     color: #fff;
   }
 }
+.btn-vaciar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-muted);
+  border-radius: $radius-sm;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  cursor: pointer;
+  width: fit-content;
 
-#campos-tarjeta,
-#campos-transferencia {
-  display: none;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
 }
 
-
+.campos-tarjeta,
+.campos-transferencia {
+  display: none;
+}

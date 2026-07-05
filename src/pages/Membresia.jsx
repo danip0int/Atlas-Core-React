@@ -1,9 +1,14 @@
 import { productos } from "../data/productos";
 import ProductoCard from "../components/ProductoCard";
 import Carrito from "../components/Carrito";
+import {useContext } from "react";
+import  {CarritoContext } from "../context/CarritoContext";
 import { BsApple, BsHeartPulse, BsPhone, BsGraphUp } from 'react-icons/bs'
 
 function Membresia() {
+
+const { agregarProducto } = useContext(CarritoContext)
+
   return (
     <main>
       <section className="membresias">
@@ -23,7 +28,7 @@ function Membresia() {
                 <li>Clases grupales básicas</li>
                 <li>Uso de vestuarios</li>
               </ul>
-              <a href="#" className="btn-primary btn-plan" data-plan="Plan PRO" data-precio="45000">Elegir plan</a>
+              <button className="btn-primary btn-plan" onClick={() => agregarProducto({ id: "plan-pro", nombre: "Plan PRO", precio: 52000 })}>Elegir plan</button>
             </article>
             <article className="plan-card plan-destacado">
               <header className="plan-header">
@@ -37,7 +42,7 @@ function Membresia() {
                 <li>Boxeo y entrenamiento guiado</li>
                 <li>Acceso a spa y vestuarios</li>
               </ul>
-              <a href="#" className="btn-primary btn-plan" data-plan=" Plan ATLAS" data-precio="75000">Elegir plan</a>
+              <button className="btn-primary btn-plan" onClick={() => agregarProducto({ id: "plan-atlas", nombre: "Plan ATLAS", precio: 70000 })}>Elegir plan</button>
             </article>
             <article className="plan-card">
               <header className="plan-header">
@@ -50,7 +55,7 @@ function Membresia() {
                 <li>Clases exclusivas</li>
                 <li>Seguimiento mensual</li>
               </ul>
-              <a href="#" className="btn-primary btn-plan" data-plan="Plan PREMIUM" data-precio="60000">Elegir plan</a>
+              <button className="btn-primary btn-plan" onClick={() => agregarProducto({ id: "plan-premium", nombre: "Plan PREMIUM", precio: 60000 })}>Elegir plan</button>
             </article>
           </div>
         </div>
@@ -66,28 +71,28 @@ function Membresia() {
               <h3>Nutrición</h3>
               <p>Asesoramiento nutricional para potenciar tu rendimiento.</p>
               <span className="servicio-precio">$20.000 / mes</span>
-  <button class="btn-agregar">Agregar</button>
+  <button className="btn-agregar" onClick={() => agregarProducto({ id: "servicio-nutricion", nombre: "Nutrición", precio: 20000 })}>Agregar</button>
             </div>
             <div className="beneficio-item" data-servicio="Masajes" data-precio="15000">
               <BsHeartPulse/>
               <h3>Masajes</h3>
               <p>Sesiones de recuperación muscular y relajación.</p>
               <span className="servicio-precio">$15.000 / mes</span>
-  <button class="btn-agregar">Agregar</button>
+  <button className="btn-agregar" onClick={() => agregarProducto({ id: "servicio-masajes", nombre: "Masajes", precio: 15000 })}>Agregar</button>
             </div>
             <div className="beneficio-item" data-servicio="App de Entrenamiento" data-precio="0">
               <BsPhone/>
               <h3>App de entrenamiento</h3>
               <p>Planes personalizados y seguimiento desde tu celular.</p>
               <span className="servicio-precio">Gratis!</span>
-  <button class="btn-agregar">Agregar</button>
+  <button className="btn-agregar" onClick={() => agregarProducto({ id: "servicio-app", nombre: "App de entrenamiento", precio: 0 })}>Agregar</button>
             </div>
             <div className="beneficio-item" data-servicio="Seguimiento" data-precio="8000">
               <BsGraphUp/>
               <h3>Seguimiento</h3>
               <p>Evaluaciones periódicas para medir tu progreso.</p>
               <span className="servicio-precio">$10.000 / mes</span>
-  <button className="btn-agregar">Agregar</button>
+<button className="btn-agregar" onClick={() => agregarProducto({ id: "servicio-seguimiento", nombre: "Seguimiento", precio: 8000 })}>Agregar</button>
             </div>
           </div>
         </div>
