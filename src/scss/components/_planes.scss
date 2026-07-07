@@ -113,6 +113,7 @@
   font-size: 1.4rem;
   cursor: pointer;
   z-index: 9999;
+  overflow: visible;
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(235, 94, 40, 0.4);
@@ -121,6 +122,22 @@
   &:hover {
     transform: scale(1.1);
   }
+}
+
+.carrito-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-eliminar {
