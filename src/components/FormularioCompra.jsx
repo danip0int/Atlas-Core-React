@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CarritoContext } from "../context/CarritoContext"
+import { use } from "react"
 
 
-function FormularioCompra() {
+function FormularioCompra({onConfirmar}) {
 const [nombre, setNombre] = useState('')
 const [apellido, setApellido] = useState('')
 const [dni, setDni] = useState('')
@@ -10,6 +12,7 @@ const [telefono, setTelefono] = useState('')
 const [direccion, setDireccion] = useState('')
 const [metodoPago, setMetodoPago] = useState('')
 const [errores, setErrores] = useState({})
+const {vaciarCarrito} = useContext(CarritoContext)
 
 const validarMembresia = () => {
     const nuevosErrores = {}
@@ -31,7 +34,8 @@ function handleSubmit (e){
     if(Object.keys(erroresEncontrados).length > 0){
         setErrores(erroresEncontrados)
     } else {
-        console.log('Bienvenido a Atlas-Core!')
+        onConfirmar({nombre, email})
+        vaciarCarrito()
     }
 }
 
@@ -46,7 +50,7 @@ function handleSubmit (e){
     <input type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} placeholder="Apellido" />
     {errores.apellido && <p>{errores.apellido}</p>}
     <label>D.N.I</label>
-    <input type="text" value={dni} onChange={(e) => setDni(e.target.value)} placeholder="DNI" />
+    <input type="text" value={dni} onChange={(e) => setDni(e.target.value)} placeholder="DNI" maxLength={8}/>
     {errores.dni && <p>{errores.dni}</p>}
     <label>Email</label>
     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
@@ -55,9 +59,9 @@ function handleSubmit (e){
     <input type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Dirección" />
     {errores.direccion && <p>{errores.direccion}</p>}
     <label>Teléfono</label>
-    <input type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Teléfono" />
+    <input type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Teléfono" maxLength={12}/>
     {errores.telefono && <p>{errores.telefono}</p>}
-    <label>Método de pago</label>
+    <label><strong>Método de pago</strong></label>
     <select defaultValue="" value={metodoPago} onChange={(e) => setMetodoPago(e.target.value)} >
         <option value="" disabled>Seleccioná un método</option>
         <option value="credito">Tarjeta de Crédito</option>
@@ -67,7 +71,7 @@ function handleSubmit (e){
     {(metodoPago === "credito" || metodoPago === "debito") && (
             <div>
                 <label>Número de tarjeta</label>
-                <input type="text" placeholder="XXXX XXXX XXXX XXXX" />
+                <input type="text" placeholder="XXXX XXXX XXXX XXXX" maxLength={19} />
                 <label>Titular de la tarjeta</label>
                 <input type="text" placeholder="Nombre como figura en la tarjeta" />
                 <label>Vencimiento</label>
