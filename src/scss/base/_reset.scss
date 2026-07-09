@@ -9,9 +9,7 @@
 html,
 body {
   margin: 0;
-  background-color: aqua;
 }
-
 body {
   position: relative;
   color: var(--color-text-main);
@@ -20,6 +18,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
 }
+
 
 html {
   background: var(--color-bg-main);

@@ -3,6 +3,12 @@ import ProductoCard from "../components/ProductoCard";
 import Carrito from "../components/Carrito";
 import {useContext } from "react";
 import  {CarritoContext } from "../context/CarritoContext";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import { BsApple, BsHeartPulse, BsPhone, BsGraphUp } from 'react-icons/bs'
 
 function Membresia() {
@@ -59,11 +65,34 @@ const { agregarProducto } = useContext(CarritoContext)
             </article>
           </div>
         </div>
+        <section>
+          <header>
+<h2 className="membresias-header">Todo lo que necesitás para acompañar tu entrenamiento </h2>
+          </header>
+          <Swiper
+  modules={[Pagination, Navigation]}
+  slidesPerView={3}
+  spaceBetween={20}
+  pagination={{ clickable: true }}
+  navigation={true}
+  breakpoints={{
+    320: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1200: { slidesPerView: 3 }
+  }}
+>
+  {productos.map(producto => (
+    <SwiperSlide key={producto.id}>
+      <ProductoCard producto={producto} />
+    </SwiperSlide>
+  ))}
+</Swiper>
+        </section>
         <section className="beneficios">
         <div className="container">
           <header className="beneficios-header">
             <h2>Servicios adicionales</h2>
-            <p>Todo para acompañar y mejorar al detalle tu entrenamiento.</p>
+            <p>Cada dellate mejora tu progreso.</p>
           </header>
           <div className="beneficios-grid">
             <div className="beneficio-item" data-servicio="Nutrición" data-precio="20000">
@@ -98,56 +127,8 @@ const { agregarProducto } = useContext(CarritoContext)
         </div>
       </section>
       </section>
-      <div className="productos-grid">
-  {productos.map(producto => (
-    <ProductoCard key={producto.id} producto={producto} />
-  ))}
-</div>
 <Carrito/>
-{/* <section id="carrito">
-        <h2>Tu suscripción</h2>
-        <div id="carrito-plan"></div>
-        <div id="carrito-extras"></div>
-        <p>Total: <span id="carrito-total">$0</span></p>
-        <button id="btn-contratar" class="btn-primary">Contratar</button>
-        <section id="formulario-contacto">
-    <h2>Completá tus datos</h2>
-    <label for="input-nombre">Nombre</label>
-    <input type="text" id="input-nombre" placeholder="Nombre" />
-    <label for="input-apellido">Apellido</label>
-    <input type="text" id="input-apellido" placeholder="Apellido">
-    <label for="input-dni">DNI</label>
-    <input type="text" id="input-dni" maxlength="8" placeholder="DNI"/>
-    <label for="input-mail">E-mail</label>
-    <input type="email" id="input-mail" placeholder="Email" />
-    <label for="input-tel">Teléfono</label>
-    <input type="tel" id="input-tel" maxlength="12" placeholder="Teléfono" />
-    <label>Método de pago</label>
-<select id="select-pago">
-  <option value="" disabled selected>Seleccioná un método</option>
-  <option value="debito">Tarjeta de débito</option>
-  <option value="credito">Tarjeta de crédito</option>
-  <option value="transferencia">Transferencia bancaria</option>
-</select>
-
-<div id="campos-tarjeta">
-  <label>Número de tarjeta</label>
-  <input type="text" id="input-tarjeta" placeholder="XXXX XXXX XXXX XXXX" />
-  <label>Titular de la tarjeta</label>
-<input type="text" id="input-titular" placeholder="Nombre como figura en la tarjeta" />
-<label>Vencimiento</label>
-<input type="text" id="input-vencimiento" placeholder="MM/AA" />
-<label>Domicilio</label>
-<input type="text" id="input-domicilio" placeholder="Calle y número" />
-</div>
-
-<div id="campos-transferencia">
-  <p>CBU: 0000003100012345678901</p>
-  <p>Alias: ATLAS.CORE.GYM</p>
-</div>
-    <button id="btn-confirmar" class="btn-primary">Confirmar suscripción</button>
-  </section>
-      </section>
+{/* 
 <div id="modal-confirmacion" class="modal-rutinas">
   <div class="modal-contenido">
     <h3>¡Bienvenido a Atlas Core! 🎉</h3>

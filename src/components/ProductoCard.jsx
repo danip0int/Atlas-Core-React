@@ -12,7 +12,6 @@ function ProductoCard({ producto }) {
       <div className="card-body">
         <h3 className="card-title">{producto.nombre}</h3>
       <p className="card-text">${producto.precio.toLocaleString("es-AR")}</p>
-      <p className="card-text">{producto.categoria}</p>
       <p className="card-text">{producto.descripcion}</p>
       <button className="btn-primary" onClick={() => agregarProducto(producto)}>Agregar</button>
       </div>

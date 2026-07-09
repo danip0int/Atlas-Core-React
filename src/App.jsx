@@ -12,7 +12,6 @@ import Contacto from "./pages/Contacto";
 function App() {
   return (
     <div>
-      <h1>Atlas Core</h1>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>

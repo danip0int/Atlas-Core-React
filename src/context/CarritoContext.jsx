@@ -6,7 +6,7 @@ export const CarritoContext = createContext();
 const carritoReducer = (state, action) => {
     switch (action.type) {
         case 'AGREGAR':
-            if (action.payload.id.startsWith("plan-")) {
+            if (String(action.payload.id).startsWith("plan-")) {
     return [...state.filter(item => !item.id.startsWith("plan-")), {...action.payload, cantidad: 1}]
 }
             const existe = state.find(producto => producto.id === action.payload.id);
