@@ -43,11 +43,11 @@ function Contacto() {
             <p>Escribinos y te respondemos a la brevedad.</p>
             <form onSubmit={handleSubmit}>
               <input value={campoNombre} onChange={(e) => setCampoNombre(e.target.value)} type="text" placeholder="Nombre" id="input-nombre"/>
-               {errores.nombre && <p>{errores.nombre}</p>}
+               {errores.nombre && <p className='error'>{errores.nombre}</p>}
               <input value={campoEmail} onChange={(e) => setCampoEmail(e.target.value)} type="email" placeholder="Email" id="input-email"/>
-               {errores.email && <p>{errores.email}</p>}
+               {errores.email && <p className='error'>{errores.email}</p>}
               <textarea value={campoTexto} onChange={(e) => setCampoTexto(e.target.value)} placeholder="Mensaje" id="input-mensaje"></textarea>
-               {errores.mensaje&& <p>{errores.mensaje}</p>}
+               {errores.mensaje&& <p className='error'>{errores.mensaje}</p>}
               <button type="submit" className="btn-primary btn-form" id="btn-enviar">Enviar</button>
             </form>
           </div>

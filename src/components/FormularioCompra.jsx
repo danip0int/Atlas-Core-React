@@ -17,13 +17,13 @@ const {vaciarCarrito} = useContext(CarritoContext)
 const validarMembresia = () => {
     const nuevosErrores = {}
     const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    if (!nombre) nuevosErrores.nombre = 'El nombre es obligatorio'
-    if (!apellido) nuevosErrores.apellido = 'El apellido es obligatorio'
-    if (!dni) nuevosErrores.dni = 'El DNI es obligatorio'
-    if (!email || !emailValido) nuevosErrores.email = 'El email es obligatorio'
-    if (!telefono) nuevosErrores.telefono = 'El teléfono es obligatorio'
-    if (!direccion) nuevosErrores.direccion = 'La dirección es obligatorio'
-    if (!metodoPago) nuevosErrores.metodoPago = 'Seleccione un método de pago'
+    if (!nombre) nuevosErrores.nombre = 'El nombre es obligatorio.'
+    if (!apellido) nuevosErrores.apellido = 'El apellido es obligatorio.'
+    if (!dni) nuevosErrores.dni = 'El DNI es obligatorio.'
+    if (!email || !emailValido) nuevosErrores.email = 'El email es obligatorio.'
+    if (!telefono) nuevosErrores.telefono = 'El teléfono es obligatorio.'
+    if (!direccion) nuevosErrores.direccion = 'La dirección es obligatoria.'
+    if (!metodoPago) nuevosErrores.metodoPago = 'Seleccione un método de pago.'
     return nuevosErrores
 }
 
@@ -45,22 +45,22 @@ function handleSubmit (e){
     <h2>Completá tus datos</h2>
     <label>Nombre</label>
     <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
-    {errores.nombre && <p>{errores.nombre}</p>}
+    {errores.nombre && <p className="error">{errores.nombre}</p>}
     <label>Apellido</label>
     <input type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} placeholder="Apellido" />
-    {errores.apellido && <p>{errores.apellido}</p>}
+    {errores.apellido && <p className="error">{errores.apellido}</p>}
     <label>D.N.I</label>
     <input type="text" value={dni} onChange={(e) => setDni(e.target.value)} placeholder="DNI" maxLength={8}/>
-    {errores.dni && <p>{errores.dni}</p>}
+    {errores.dni && <p className="error">{errores.dni}</p>}
     <label>Email</label>
     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-    {errores.email && <p>{errores.email}</p>}
+    {errores.email && <p className="error">{errores.email}</p>}
     <label>Dirección</label>
     <input type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} placeholder="Dirección" />
-    {errores.direccion && <p>{errores.direccion}</p>}
+    {errores.direccion && <p className="error">{errores.direccion}</p>}
     <label>Teléfono</label>
     <input type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Teléfono" maxLength={12}/>
-    {errores.telefono && <p>{errores.telefono}</p>}
+    {errores.telefono && <p className="error">{errores.telefono}</p>}
     <label><strong>Método de pago</strong></label>
     <select defaultValue="" value={metodoPago} onChange={(e) => setMetodoPago(e.target.value)} >
         <option value="" disabled>Seleccioná un método</option>
@@ -86,7 +86,7 @@ function handleSubmit (e){
   <p>Alias: ATLAS.CORE.GYM</p>
 </div>
 )}
-        {errores.metodoPago && <p>{errores.metodoPago}</p>}
+        {errores.metodoPago && <p className="error">{errores.metodoPago}</p>}
         <button type="submit" className="btn-primary">Confirmar compra</button>
 </form>
         </>
