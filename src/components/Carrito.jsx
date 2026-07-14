@@ -1,9 +1,7 @@
 
 import { useContext, useState } from "react";
-import { BsTrash,BsXLg, BsArrowLeft } from 'react-icons/bs'
-
+import { BsTrash,BsXLg, BsArrowLeft, BsCart3} from 'react-icons/bs'
 import { CarritoContext } from "../context/CarritoContext";
-import { BsCart3 } from 'react-icons/bs'
 import FormularioCompra from './FormularioCompra'
 
 function Carrito() {
@@ -30,33 +28,37 @@ console.log(abierto)
     setCompraConfirmada(false)
 }}><BsXLg/></button>
             {compraConfirmada ? (
-                <div className="mensaje-confirmacion">
-                    <h3>¡Bienvenido a Atlas Core! 🎉</h3>
-                    <p>¡Gracias <strong>{datosSuscripcion.nombre}</strong>! Tu suscripción fue exitosamente procesada. Te enviamos los detalles a <strong>{datosSuscripcion.email}</strong>.</p>
-                </div>
+    <div className="mensaje-confirmacion">
+        <h3>¡Bienvenido a Atlas Core! 🎉</h3>
+        <p>¡Gracias <strong>{datosSuscripcion.nombre}</strong>! Tu suscripción fue exitosamente procesada. Te enviamos los detalles a <strong>{datosSuscripcion.email}</strong>.</p>
+    </div>
+) : (
+    compra === 1 ? (
+        <>
+        <h2>Carrito <BsCart3 /></h2>
+            {carrito.length === 0 ? (
+                <p>Aún no hay productos en el carrito.</p>
             ) : (
-                compra === 1 ? (
-                    <>
-                        {carrito.map(vaciar => (
-                            <div className="carrito-item" key={vaciar.id}>
-                                <p>{vaciar.nombre} x{vaciar.cantidad} — ${vaciar.precio.toLocaleString("es-AR")}</p>
-                                <button className="btn-eliminar" onClick={() => eliminarProducto(vaciar)}><BsTrash /></button>
-                            </div>
-                        ))}
-                        <p className="carrito-total">Total: ${total.toLocaleString("es-AR")}</p>
-                        {/* <button className="btn-vaciar" onClick={() => vaciarCarrito()}>Vaciar carrito</button> */}
-                        <button className="btn-primary" onClick={() => setCompra(2)}>Contratar</button>
-                    </>
-                ) : (
-                    <>
-                        <button className="btn-volver" onClick={() => setCompra(1)}><BsArrowLeft/> Volver</button>
-                        <FormularioCompra onConfirmar={(datos) => {
-    setCompraConfirmada(true)
-    setDatosSuscripcion(datos)
-}} />
-                    </>
-                )
+                carrito.map(vaciar => (
+                    <div className="carrito-item" key={vaciar.id}>
+                        <p>{vaciar.nombre} x{vaciar.cantidad} — ${vaciar.precio.toLocaleString("es-AR")}</p>
+                        <button className="btn-eliminar" onClick={() => eliminarProducto(vaciar)}><BsTrash /></button>
+                    </div>
+                ))
             )}
+            <p className="carrito-total">Total: ${total.toLocaleString("es-AR")}</p>
+            <button className="btn-primary" onClick={() => setCompra(2)} disabled={carrito.length === 0}>Contratar</button>
+        </>
+    ) : (
+        <>
+            <button className="btn-volver" onClick={() => setCompra(1)}><BsArrowLeft/> Volver</button>
+            <FormularioCompra onConfirmar={(datos) => {
+                setCompraConfirmada(true)
+                setDatosSuscripcion(datos)
+            }} />
+        </>
+    )
+)}
         </div>
     </>
 )

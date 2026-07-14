@@ -48,6 +48,11 @@
   font-size: 0.9rem;
 }
 
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .btn-secondary {
   @include btn-base;
 

@@ -8,9 +8,16 @@ import imgMasajes from '../assets/masajesprevencion.png'
 import imgNutricion from '../assets/plannutricion.webp'
 import videoHome from '../assets/videos/gymvideo.mp4'
 import videoHome2 from '../assets/videos/entrenamiento.mp4'
+import useContador from '../hooks/useContador'
 import { BsPeopleFill, BsClock, BsStarFill, BsGeoAltFill } from 'react-icons/bs'
 
 function Home() {
+
+  const contador = useContador(350)
+const contadorTiempo = useContador(8)
+const contadorSedes = useContador(10)
+const contadorSatisfaccion = useContador(87)
+  
   return (
     <main className='principal'>
       <Swiper modules={[Autoplay]} autoplay={{delay: 4500}} loop={true}>
@@ -60,22 +67,22 @@ function Home() {
     <section id="stats">
         <div>
           <BsPeopleFill/>
-          <span id="stat-alumnos">+350</span>
+          <span id="stat-alumnos">+{contador}</span>
           <p>Alumnos activos</p>
         </div>
         <div>
           <BsClock/>
-          <span id="stat-tiempo">8</span>
+          <span id="stat-tiempo">{contadorTiempo}</span>
           <p>Años de experiencia</p>
         </div>
         <div>
           <BsGeoAltFill/>
-          <span id="stat-sede">10</span>
+          <span id="stat-sede">{contadorSedes}</span>
           <p>Sedes en la ciudad</p>
         </div>
         <div>
           <BsStarFill/>
-          <span id="stat-satisfaccion">+85%</span>
+          <span id="stat-satisfaccion">+{contadorSatisfaccion}%</span>
           <p>Clientes satisfechos</p>
         </div>
       </section>

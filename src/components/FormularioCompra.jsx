@@ -13,6 +13,8 @@ const [direccion, setDireccion] = useState('')
 const [metodoPago, setMetodoPago] = useState('')
 const [errores, setErrores] = useState({})
 const {vaciarCarrito} = useContext(CarritoContext)
+const [numeroTarjeta, setNumeroTarjeta] = useState('')
+const [vencimiento, setVencimiento] = useState('')
 
 const validarMembresia = () => {
     const nuevosErrores = {}
@@ -71,11 +73,23 @@ function handleSubmit (e){
     {(metodoPago === "credito" || metodoPago === "debito") && (
             <div>
                 <label>Número de tarjeta</label>
-                <input type="text" placeholder="XXXX XXXX XXXX XXXX" maxLength={19} />
+                <input type="text" value={numeroTarjeta} onChange={(e) => {
+    let valor = e.target.value.replace(/\D/g, '')
+    valor = valor.substring(0, 16)
+    valor = valor.replace(/(.{4})/g, '$1 ').trim()
+    setNumeroTarjeta(valor)
+}} placeholder="XXXX XXXX XXXX XXXX" maxLength={19} />
                 <label>Titular de la tarjeta</label>
                 <input type="text" placeholder="Nombre como figura en la tarjeta" />
                 <label>Vencimiento</label>
-                <input type="text" placeholder="MM/AA" />
+                <input type="text" value={vencimiento} onChange={(e) => {
+                    let valor = e.target.value.replace(/\D/g, '')
+                    valor = valor.substring(0,4)
+                    if (valor.length >= 2) {
+    valor = valor.substring(0, 2) + '/' + valor.substring(2)
+}
+                    setVencimiento(valor)
+                }} placeholder="MM/AA" />
                 <label>Domicilio</label>
                 <input type="text" placeholder="Calle y número" />
             </div>
@@ -87,7 +101,7 @@ function handleSubmit (e){
 </div>
 )}
         {errores.metodoPago && <p className="error">{errores.metodoPago}</p>}
-        <button type="submit" className="btn-primary">Confirmar compra</button>
+        <button type="submit" className="btn-primary btn-confirmar">Confirmar compra</button>
 </form>
         </>
     )
