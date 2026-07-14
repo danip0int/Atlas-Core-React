@@ -1,7 +1,7 @@
 @use "../base/variables" as *;
 @use "../utils/mixins" as *;
 
-#calculadora {
+.calculadora {
   max-width: 520px;
   margin: 4rem auto;
   padding: 2.5rem;
@@ -29,7 +29,10 @@ backdrop-filter: blur(8px);
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;
   }
-
+  
+  p.error {
+  color: #e74c3c;
+}
   input,
   select {
     width: 100%;
@@ -46,7 +49,7 @@ backdrop-filter: blur(8px);
     }
   }
 
-  #resultado {
+  .resultado {
     margin-top: 0.5rem;
     padding: 1rem;
     background: rgba(235, 94, 40, 0.1);
@@ -54,7 +57,7 @@ backdrop-filter: blur(8px);
     border-radius: $radius-sm;
     color: var(--color-text-main);
     font-weight: 600;
-    display: none;
+    display: block;
 
     &.visible {
       display: block;

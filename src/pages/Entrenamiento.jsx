@@ -5,9 +5,47 @@ import imgDisciplina from '../assets/entrenamientogym.webp'
 import imgDisciplina2 from '../assets/peraboxeo.webp'
 import imgDisciplina3 from '../assets/levantamientobarra.webp'
 import imgDisciplina4 from '../assets/levantamientopesarusa.webp'
+import { useState } from 'react'
 // import rutinas from '../data/rutinas.json'
 
 function Entrenamiento() {
+  const [sexo, setSexo] = useState('')
+  const [actividad, setActividad] = useState('')
+  const [peso, setPeso] = useState('')
+  const [altura, setAltura] = useState('')
+  const [edad, setEdad] = useState('')
+const [error, setError] = useState('')
+  const [resultado, setResultado] = useState(null)
+
+  function calcularCalorias() {
+setError('')
+    const pesoNum = Number(peso)
+const alturaNum = Number(altura)
+const edadNum = Number(edad)
+
+    if (isNaN(pesoNum) || pesoNum < 30 || pesoNum > 300){
+      setError("Ingresá un peso válido (entre 30 y 300 kg)")
+      return
+    }
+ if (isNaN(alturaNum) || alturaNum < 100 || alturaNum > 250){
+      setError("Ingresá una altura válida en cm (entre 100  y 250 cm)")
+      return
+    }
+     if (isNaN(edadNum) || edadNum < 10 || edadNum > 100){
+      setError("Ingresá una edad válida (entre 10 y 100 años)")
+      return
+    } else{
+      let TMB
+      if (sexo === 'Masculino') {
+         TMB = 88.36 + (13.4 * pesoNum) + (4.8 * alturaNum) - (5.7 * edadNum)
+      } else{
+         TMB = 447.6 + (9.2 * pesoNum) + (3.1 * alturaNum) - (4.3 * edadNum)
+      }
+      setResultado(TMB * Number(actividad))
+
+    }
+    
+  }
   return (
     <main>
       <section className="entrenamientos py-5">
@@ -67,32 +105,40 @@ function Entrenamiento() {
           </div>
         </div>
       </section>
-      {/* <section id="calculadora">
+      <section className='calculadora'>
         <h2>Entrenás fuerte, pero ¿Sabés cuánto necesitás comer? 🤔​</h2>
         <p>
           Calculá tus calorías diarias en segundos y ajustá tu alimentación a
           tus objetivos reales. 💪
         </p>
-        <input type="number" id="peso" placeholder="Ingresá tu peso" />
-        <input type="number" id="altura" placeholder="Ingresá tu altura (cm)" />
-        <input type="number" id="edad" placeholder="Ingresá tu edad" />
-        <select name="sexo" id="selectSexo">
-          <option value="" disabled selected>Sexo</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Femenino">Femenino</option>
-        </select>
-        <select name="actividad" id="selectActividad">
-          <option value="" disabled selected>Nivel de actividad</option>
-          <option value="1.2">Sedentario</option>
-          <option value="1.375">Actividad <span>ligera</span></option>
-          <option value="1.55">Actividad <span>moderada</span></option>
-          <option value="1.725">Actividad <span>intensa</span></option>
-        </select>
-        <button id="btn-calcular" class="btn-primary">Calcular</button>
-        <div id="resultado">
-          <p>Tu requerimiento calórico diario es de:</p>
-        </div>
-      </section> */}
+        <label>Peso (kg):</label>
+        <input type="number" value={peso} onChange={(e) => setPeso(e.target.value)} placeholder="Ingresá tu peso" />
+        <label>Altura (cm):</label>
+<input type="number" value={altura} onChange={(e) => setAltura(e.target.value)} placeholder="Ingresá tu altura (cm)" />
+<label>Edad:</label>
+<input type="number" value={edad} onChange={(e) => setEdad(e.target.value)} placeholder="Ingresá tu edad" />
+<label>Sexo:</label>
+<select name="sexo" value={sexo} onChange={(e) => setSexo(e.target.value)} >
+  <option value="" disabled>Sexo</option>
+  <option value="Masculino">Masculino</option>
+  <option value="Femenino">Femenino</option>
+</select>
+<label>Actividad:</label>
+<select name="actividad" value={actividad} onChange={(e) => setActividad(e.target.value)}>
+  <option value="" disabled>Nivel de actividad</option>
+  <option value="1.2">Sedentario</option>
+  <option value="1.375">Actividad ligera</option>
+  <option value="1.55">Actividad moderada</option>
+  <option value="1.725">Actividad intensa</option>
+</select>
+        <button className="btn-primary" onClick={calcularCalorias}>Calcular</button>
+        {error && <p className="error">{error}</p>}
+        {resultado !== null && (
+    <div className='resultado'>
+        <p>Tu requerimiento calórico diario es de: <strong>{Math.round(resultado)}</strong> kcal</p>
+    </div>
+)}
+      </section>
       <section className="disciplinas py-2">
         <div className="container">
           <div className="section-title title-center">
