@@ -1,20 +1,20 @@
 @use "../utils/mixins" as *;
 
-.container {
-  max-width: 1680px;
-}
+// .container {
+//   max-width: 1680px;
+// }
 
-.hero-carousel {
-  padding-top: 60px;
-}
+// .hero-carousel {
+//   padding-top: 60px;
+// }
 
-/* === CARRUSEL === */
+// /* === CARRUSEL === */
 
-.container {
-  max-width: 1380px;
-}
+// .container {
+//   max-width: 1380px;
+// }
 
-.carousel-item {
+.swiper-slide {
   position: relative;
   height: 85vh;
   overflow: hidden;
@@ -39,7 +39,7 @@
   }
 }
 
-.carousel-caption {
+.swiper-caption {
   position: absolute;
   inset: 0;
   padding: 2.5rem;
@@ -75,7 +75,7 @@
   }
 }
 
-.carousel-icon {
+.swiper-icon {
   position: absolute;
   bottom: 1.8rem;
   left: 2rem;

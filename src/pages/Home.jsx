@@ -28,11 +28,11 @@ const contadorSatisfaccion = useContador(87)
               alt="Mujer haciendo poleas cruzadas"
             />
             <div
-              className="carousel-caption d-flex flex-column justify-content-center"
+              className="swiper-caption d-flex flex-column justify-content-center"
             >
               <h2>Rompemos tus <span>límites</span></h2>
               <p>Entrenamiento de alto rendimiento</p>
-              <span className="carousel-icon">ATLAS CORE</span>
+              <span className="swiper-icon">ATLAS CORE</span>
             </div>
 </SwiperSlide>
 <SwiperSlide>
@@ -42,11 +42,11 @@ const contadorSatisfaccion = useContador(87)
               alt="hombre sentado haciendo biceps con mancuerna"
             />
             <div
-              className="carousel-caption d-flex flex-column justify-content-center"
+              className="swiper-caption d-flex flex-column justify-content-center"
             >
               <h2>ATLAS <span>CORE</span></h2>
               <p>High Performance for Athletes</p>
-              <span className="carousel-icon">ATLAS CORE</span>
+              <span className="swiper-icon">ATLAS CORE</span>
             </div>
 </SwiperSlide>
 <SwiperSlide>
@@ -56,11 +56,11 @@ const contadorSatisfaccion = useContador(87)
               alt="Mujer haciendo poleas cruzadas"
             />
             <div
-              className="carousel-caption d-flex flex-column justify-content-center"
+              className="swiper-caption d-flex flex-column justify-content-center"
             >
               <h2>Rompemos tus <span>límites</span></h2>
               <p>Entrenamiento de alto rendimiento</p>
-              <span className="carousel-icon">ATLAS CORE</span>
+              <span className="swiper-icon">ATLAS CORE</span>
             </div>
 </SwiperSlide>
     </Swiper>
@@ -111,7 +111,7 @@ const contadorSatisfaccion = useContador(87)
                       de un entrenador certificado, acceso a equipamiento de
                       última generación y ajustes mensuales según tu progreso."
                     </p>
-                    <a href="#" className="btn-primary">Ver más</a>
+                    <button className='btn-primary'>Ver más</button>
                   </div>
                 </div>
               </div>

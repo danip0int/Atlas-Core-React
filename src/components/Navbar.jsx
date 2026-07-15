@@ -1,18 +1,21 @@
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/atlas-logo.png"
 import { BsInstagram, BsWhatsapp } from "react-icons/bs"
+import { useState } from "react";
 
 function Navbar(){
+  const [menuAbierto, setMenuAbierto] = useState(false)
+
     return(
         <header className="header">
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top" >
         <div className="container-fluid px-4">
-        <a className="navbar-brand d-flex align-items-center" href="index.html">
+        <Link className='navbar-brand d-flex aling-items-center' to='/'>
         <img src={logo} alt="Atlas Core logo"/>
         <span className="brand-text">ATLAS <span className="core">CORE</span></span>
-        </a>
-        <button
+        </Link>
+        <button 
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -20,10 +23,11 @@ function Navbar(){
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => setMenuAbierto(!menuAbierto)}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse" id="navbarNav" className={menuAbierto ? "collapse navbar-collapse show" : "collapse navbar-collapse"}>
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/">Inicio</NavLink>
