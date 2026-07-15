@@ -6,7 +6,7 @@ import imgDisciplina2 from '../assets/peraboxeo.webp'
 import imgDisciplina3 from '../assets/levantamientobarra.webp'
 import imgDisciplina4 from '../assets/levantamientopesarusa.webp'
 import { useState } from 'react'
-// import rutinas from '../data/rutinas.json'
+import ModalRutinas from '../components/ModalRutinas'
 
 function Entrenamiento() {
   const [sexo, setSexo] = useState('')
@@ -16,7 +16,8 @@ function Entrenamiento() {
   const [edad, setEdad] = useState('')
 const [error, setError] = useState('')
   const [resultado, setResultado] = useState(null)
-
+const [modalVisible, setModalVisible] = useState(false)
+const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('')
   function calcularCalorias() {
 setError('')
     const pesoNum = Number(peso)
@@ -51,7 +52,10 @@ const edadNum = Number(edad)
       <section className="entrenamientos py-5">
         <div className="entrenamiento-wrapper">
           <div className="container-fluid px-5">
-            <div className="row align-items-center mb-5" data-categoria="Fuerza">
+            <div className="row align-items-center mb-5" data-categoria="Fuerza" onClick={() => {
+    setCategoriaSeleccionada('Fuerza')
+    setModalVisible(true)
+}}>
               <div className="col-md-7">
                 <img
                   src={imgEntrenamiento}
@@ -68,7 +72,10 @@ const edadNum = Number(edad)
                 </p>
               </div>
             </div>
-            <div className="row align-items-center mb-5 flex-md-row-reverse" data-categoria="Fuerza">
+            <div className="row align-items-center mb-5 flex-md-row-reverse" data-categoria="Fuerza" onClick={() => {
+    setCategoriaSeleccionada('Fuerza')
+    setModalVisible(true)
+}}>
               <div className="col-md-7">
                 <img
                   src={imgEntrenamiento2}
@@ -85,7 +92,10 @@ const edadNum = Number(edad)
                 </p>
               </div>
             </div>
-            <div className="row align-items-center mb-5" data-categoria="Movilidad">
+            <div className="row align-items-center mb-5" data-categoria="Movilidad" onClick={() => {
+    setCategoriaSeleccionada('Movilidad')
+    setModalVisible(true)
+}}>
               <div className="col-md-7">
                 <img
                   src={imgEntrenamiento3}
@@ -146,7 +156,10 @@ const edadNum = Number(edad)
           </div>
           <div className="row g-4">
             <div className="col-md-6">
-              <div className="card disciplina-card text-white" data-categoria="Fuerza" >
+              <div className="card disciplina-card text-white" data-categoria="Fuerza" onClick={() => {
+    setCategoriaSeleccionada('Fuerza')
+    setModalVisible(true)
+}} >
                 <img
                   src={imgDisciplina}
                   className="card-img"
@@ -160,7 +173,10 @@ const edadNum = Number(edad)
               </div>
             </div>
             <div className="col-md-6">
-              <div className="card disciplina-card text-white" data-categoria="Boxeo">
+              <div className="card disciplina-card text-white" data-categoria="Boxeo" onClick={() => {
+    setCategoriaSeleccionada('Boxeo')
+    setModalVisible(true)
+}}>
                 <img
                   src={imgDisciplina2}
                   className="card-img"
@@ -174,7 +190,10 @@ const edadNum = Number(edad)
               </div>
             </div>
             <div className="col-md-6">
-              <div className="card disciplina-card text-white" data-categoria="Fuerza">
+              <div className="card disciplina-card text-white" data-categoria="Fuerza" onClick={() => {
+    setCategoriaSeleccionada('Fuerza')
+    setModalVisible(true)
+}}>
                 <img
                   src={imgDisciplina3}
                   className="card-img"
@@ -188,7 +207,10 @@ const edadNum = Number(edad)
               </div>
             </div>
             <div className="col-md-6">
-              <div className="card disciplina-card text-white" data-categoria="Cardio">
+              <div className="card disciplina-card text-white" data-categoria="Cardio" onClick={() => {
+    setCategoriaSeleccionada('Cardio')
+    setModalVisible(true)
+}}>
                 <img
                   src={imgDisciplina4}
                   className="card-img"
@@ -204,12 +226,11 @@ const edadNum = Number(edad)
           </div>
         </div>
       </section>
-      {/* <div class="modal-contenido">
-    <button id="modal-cerrar" class="modal-cerrar">&times;</button>
-    <h3 id="modal-titulo">Rutinas disponibles</h3>
-    <div id="modal-cards"></div>
-  </div>
-</div> */}
+      <ModalRutinas 
+    visible={modalVisible}
+    categoria={categoriaSeleccionada}
+    onCerrar={() => setModalVisible(false)}
+/>
     </main>
   )
 }
