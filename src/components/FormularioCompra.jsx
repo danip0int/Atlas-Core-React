@@ -1,6 +1,8 @@
 import { useState, useContext } from "react"
 import { CarritoContext } from "../context/CarritoContext"
 import { use } from "react"
+import { collection, addDoc } from "firebase/firestore"
+import {db} from '../firebase/firebase'
 
 
 function FormularioCompra({onConfirmar}) {
@@ -13,8 +15,11 @@ const [direccion, setDireccion] = useState('')
 const [metodoPago, setMetodoPago] = useState('')
 const [errores, setErrores] = useState({})
 const {vaciarCarrito} = useContext(CarritoContext)
+const {carrito} = useContext(CarritoContext)
 const [numeroTarjeta, setNumeroTarjeta] = useState('')
 const [vencimiento, setVencimiento] = useState('')
+
+
 
 const validarMembresia = () => {
     const nuevosErrores = {}
@@ -29,13 +34,24 @@ const validarMembresia = () => {
     return nuevosErrores
 }
 
-function handleSubmit (e){
+async function handleSubmit (e){
     e.preventDefault()
     const erroresEncontrados = validarMembresia()
+    const prodCollection = collection(db, 'items')
 
     if(Object.keys(erroresEncontrados).length > 0){
         setErrores(erroresEncontrados)
     } else {
+        await addDoc(prodCollection, {
+            nombre,
+            apellido,
+            dni,
+            email,
+            telefono,
+            direccion,
+            metodoPago,
+            carrito
+        })
         onConfirmar({nombre, email})
         vaciarCarrito()
     }

@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { BsTrash,BsXLg, BsArrowLeft, BsCart3} from 'react-icons/bs'
 import { CarritoContext } from "../context/CarritoContext";
 import FormularioCompra from './FormularioCompra'
+import { useNavigate } from 'react-router-dom'
 
 function Carrito() {
 
@@ -13,6 +14,7 @@ function Carrito() {
     const [compra, setCompra] = useState(1)
     const [compraConfirmada, setCompraConfirmada] = useState(false)
     const [datosSuscripcion, setDatosSuscripcion] = useState(null)
+    const navigate = useNavigate()
 
 console.log(abierto)
    return(
@@ -31,6 +33,7 @@ console.log(abierto)
     <div className="mensaje-confirmacion">
         <h3>¡Bienvenido a Atlas Core! 🎉</h3>
         <p>¡Gracias <strong>{datosSuscripcion.nombre}</strong>! Tu suscripción fue exitosamente procesada. Te enviamos los detalles a <strong>{datosSuscripcion.email}</strong>.</p>
+        <button className="btn-primary" onClick={() => navigate('/')}>Volver al inicio</button>
     </div>
 ) : (
     compra === 1 ? (
