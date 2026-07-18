@@ -37,12 +37,12 @@ const validarMembresia = () => {
 async function handleSubmit (e){
     e.preventDefault()
     const erroresEncontrados = validarMembresia()
-    const prodCollection = collection(db, 'items')
+    const prodCollection = collection(db, 'ordenes')
 
     if(Object.keys(erroresEncontrados).length > 0){
         setErrores(erroresEncontrados)
     } else {
-        await addDoc(prodCollection, {
+        const ordenID = await addDoc(prodCollection, {
             nombre,
             apellido,
             dni,
@@ -50,9 +50,10 @@ async function handleSubmit (e){
             telefono,
             direccion,
             metodoPago,
-            carrito
+            carrito,
+            fecha: new Date()
         })
-        onConfirmar({nombre, email})
+        onConfirmar({nombre, email, ordenID: ordenID.id})
         vaciarCarrito()
     }
 }

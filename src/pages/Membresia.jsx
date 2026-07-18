@@ -1,7 +1,8 @@
-import { productos } from "../data/productos";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 import ProductoCard from "../components/ProductoCard";
 import Carrito from "../components/Carrito";
-import {useContext } from "react";
+import {useContext, useEffect, useState } from "react";
 import  {CarritoContext } from "../context/CarritoContext";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
@@ -12,8 +13,24 @@ import 'swiper/css/navigation'
 import { BsApple, BsHeartPulse, BsPhone, BsGraphUp } from 'react-icons/bs'
 
 function Membresia() {
-
+const [productos, setProductos] = useState([])
+const [loading, setLoading] = useState(true)
 const { agregarProducto } = useContext(CarritoContext)
+
+useEffect(() =>{
+const prodCollection = collection(db, 'productos')
+getDocs(prodCollection)
+.then((res)=>{
+  const list = res.docs.map((doc) =>{
+    return{
+      id:doc.id,
+      ...doc.data()
+    }
+  })
+  setProductos(list)
+  setLoading(false)
+})
+}, [])
 
   return (
     <main>
@@ -69,7 +86,10 @@ const { agregarProducto } = useContext(CarritoContext)
           <header>
 <h2 className="membresias-header">Todo lo que necesitás para acompañar tu entrenamiento </h2>
           </header>
-          <Swiper
+          {loading ? (
+    <p>Cargando productos...</p>
+) : (
+    <Swiper
   modules={[Pagination, Navigation]}
   slidesPerView={3}
   spaceBetween={20}
@@ -87,6 +107,7 @@ const { agregarProducto } = useContext(CarritoContext)
     </SwiperSlide>
   ))}
 </Swiper>
+)}
         </section>
         <section className="beneficios">
         <div className="container">
@@ -126,16 +147,9 @@ const { agregarProducto } = useContext(CarritoContext)
           </div>
         </div>
       </section>
+      
       </section>
 <Carrito/>
-{/* 
-<div id="modal-confirmacion" class="modal-rutinas">
-  <div class="modal-contenido">
-    <h3>¡Bienvenido a Atlas Core! 🎉</h3>
-    <p id="modal-mensaje"></p>
-    <button id="modal-conf-cerrar" class="modal-cerrar">&times;</button>
-  </div>
-</div> */}
     </main>
 )
 }

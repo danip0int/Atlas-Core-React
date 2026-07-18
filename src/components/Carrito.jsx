@@ -32,7 +32,8 @@ console.log(abierto)
             {compraConfirmada ? (
     <div className="mensaje-confirmacion">
         <h3>¡Bienvenido a Atlas Core! 🎉</h3>
-        <p>¡Gracias <strong>{datosSuscripcion.nombre}</strong>! Tu suscripción fue exitosamente procesada. Te enviamos los detalles a <strong>{datosSuscripcion.email}</strong>.</p>
+        <p>¡Gracias <strong>{datosSuscripcion.nombre}</strong>! Tu suscripción fue exitosamente procesada. Tu número de orden es: <strong>{datosSuscripcion.ordenID}</strong>.</p>
+        <p>Te enviamos todos los detalles a <strong>{datosSuscripcion.email}</strong>.</p>
         <button className="btn-primary" onClick={() => navigate('/')}>Volver al inicio</button>
     </div>
 ) : (
