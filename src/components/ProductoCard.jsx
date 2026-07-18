@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CarritoContext } from "../context/CarritoContext"
+import ItemCount from "./ItemCount";
 
 
 function ProductoCard({ producto }) {
@@ -13,7 +14,7 @@ function ProductoCard({ producto }) {
         <h3 className="card-title">{producto.nombre}</h3>
       <p className="card-text">${producto.precio.toLocaleString("es-AR")}</p>
       <p className="card-text">{producto.descripcion}</p>
-      <button className="btn-primary" onClick={() => agregarProducto(producto)}>Agregar</button>
+      <ItemCount onAgregar={(cantidad) => agregarProducto({...producto, cantidad})} />
       </div>
     </div>
   )

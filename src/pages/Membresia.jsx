@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import ProductoCard from "../components/ProductoCard";
 import Carrito from "../components/Carrito";
@@ -16,10 +16,14 @@ function Membresia() {
 const [productos, setProductos] = useState([])
 const [loading, setLoading] = useState(true)
 const { agregarProducto } = useContext(CarritoContext)
+const [categoriaActiva, setCategoriaActiva] = useState('')
+
 
 useEffect(() =>{
 const prodCollection = collection(db, 'productos')
-getDocs(prodCollection)
+const q = query(collection(db, 'productos'), where('categoria', '==', categoriaActiva))
+const consulta = categoriaActiva === "" ? prodCollection : q
+getDocs(consulta)
 .then((res)=>{
   const list = res.docs.map((doc) =>{
     return{
@@ -30,7 +34,7 @@ getDocs(prodCollection)
   setProductos(list)
   setLoading(false)
 })
-}, [])
+}, [categoriaActiva])
 
   return (
     <main>
@@ -89,6 +93,13 @@ getDocs(prodCollection)
           {loading ? (
     <p>Cargando productos...</p>
 ) : (
+  <>
+  <div className="btn-filter">
+    <button onClick={() => setCategoriaActiva("")}>Todos</button>
+    <button onClick={() => setCategoriaActiva("suplementos")}>Suplementos</button>
+    <button onClick={() => setCategoriaActiva("ropa")}>Ropa</button>
+    <button onClick={() => setCategoriaActiva("accesorios")}>Accesorios</button>
+</div>
     <Swiper
   modules={[Pagination, Navigation]}
   slidesPerView={3}
@@ -107,6 +118,7 @@ getDocs(prodCollection)
     </SwiperSlide>
   ))}
 </Swiper>
+  </>
 )}
         </section>
         <section className="beneficios">

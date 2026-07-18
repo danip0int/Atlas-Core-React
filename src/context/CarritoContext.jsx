@@ -19,7 +19,7 @@ const carritoReducer = (state, action) => {
                     }
                 } )
             } else{
-                return [...state, {...action.payload, cantidad: 1}];
+                return [...state, action.payload];
             }
      case 'ELIMINAR':
             return state.filter(item=> item.id !== action.payload.id);

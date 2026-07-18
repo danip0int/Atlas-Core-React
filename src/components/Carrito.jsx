@@ -46,6 +46,7 @@ console.log(abierto)
                 carrito.map(vaciar => (
                     <div className="carrito-item" key={vaciar.id}>
                         <p>{vaciar.nombre} x{vaciar.cantidad} — ${vaciar.precio.toLocaleString("es-AR")}</p>
+                        <p>Subtotal: ${(vaciar.precio * vaciar.cantidad).toLocaleString("es-AR")}</p>
                         <button className="btn-eliminar" onClick={() => eliminarProducto(vaciar)}><BsTrash /></button>
                     </div>
                 ))
