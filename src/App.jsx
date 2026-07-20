@@ -7,6 +7,7 @@ import Entrenamiento from "./pages/Entrenamiento";
 import Instalaciones from "./pages/Instalaciones";
 import Membresia from "./pages/Membresia";
 import Contacto from "./pages/Contacto";
+import ItemDetail from "./pages/ItemDetail";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/instalaciones" element={<Instalaciones/>}/>
         <Route path="/membresia" element={<Membresia/>}/>
         <Route path="/contacto" element={<Contacto/>}/>
+        <Route path="/producto/:id" element={<ItemDetail />} />
       </Routes>
       <Footer/>
     </div>

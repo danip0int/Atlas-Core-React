@@ -1,7 +1,6 @@
 
 export const productos = [
   {
-    id: 1,
     nombre: "Proteína Whey Atlas",
     precio: 65000,
     categoria: "suplementos",
@@ -9,7 +8,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 2,
     nombre: "Creatina Monohidrato",
     precio: 35000,
     categoria: "suplementos",
@@ -17,7 +15,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 3,
     nombre: "Pre Entreno Explosive",
     precio: 3000,
     categoria: "suplementos",
@@ -25,7 +22,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 4,
     nombre: "Remera Dry Fit Negra",
     precio: 23000,
     categoria: "ropa",
@@ -33,7 +29,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 5,
     nombre: "Remera Dry Fit Blanca",
     precio: 23000,
     categoria: "ropa",
@@ -41,7 +36,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 6,
     nombre: "Short de Entrenamiento",
     precio: 20000,
     categoria: "ropa",
@@ -49,7 +43,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 7,
     nombre: "Cinturón Lumbar Power",
     precio: 27000,
     categoria: "accesorios",
@@ -57,7 +50,6 @@ export const productos = [
     imagen: ""
   },
   {
-    id: 8,
     nombre: "Straps de Muñeca",
     precio: 12000,
     categoria: "accesorios",

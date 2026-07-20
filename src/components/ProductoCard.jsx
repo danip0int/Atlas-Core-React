@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CarritoContext } from "../context/CarritoContext"
+import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
 
@@ -14,6 +15,7 @@ function ProductoCard({ producto }) {
         <h3 className="card-title">{producto.nombre}</h3>
       <p className="card-text">${producto.precio.toLocaleString("es-AR")}</p>
       <p className="card-text">{producto.descripcion}</p>
+      <Link to={`/producto/${producto.id}`}>Ver detalle</Link>
       <ItemCount onAgregar={(cantidad) => agregarProducto({...producto, cantidad})} />
       </div>
     </div>
