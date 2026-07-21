@@ -1,0 +1,134 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+
+.detalle-container {
+    max-width: 1600px; // Usando tu medida máxima
+    margin: 0 auto;
+    padding: 140px 20px 60px 20px; // Un toque más de aire por la Navbar
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-main);
+}
+
+.detalle-loader {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+// Estructura base: ESCRITORIO por defecto (flex-direction: row)
+.detalle-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; 
+    gap: 40px;
+    width: 100%;
+    background-color: var(--color-bg-card);
+    border-radius: 16px; // Tu $radius-md
+    padding: 40px;
+    
+    // Invocamos tu mixin de sombra personalizada
+    @include soft-shadow(40px, 0.5); 
+
+    // Cuando baja a Tablet o menos, se apila en columna
+    @include tablet-break {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+}
+
+.detalle-imagen-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg-soft);
+    border-radius: 8px; // Tu $radius-sm
+    overflow: hidden;
+    padding: 20px;
+    
+    // Invocamos tu mixin de levante y transición para la caja contenedora
+    @include hover-lift(-4px, 1.01); 
+}
+
+.detalle-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; // Tu $radius-sm
+}
+
+.detalle-info-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.detalle-categoria {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: var(--color-accent); 
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.detalle-titulo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+    line-height: 1.2;
+
+    @include mobile-break {
+        font-size: 1.8rem; // Achicamos el título en celular para que no rompa
+    }
+}
+
+.detalle-precio {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 15px;
+}
+
+.detalle-divisor {
+    height: 3px;
+    width: 60px;
+    background-color: var(--color-accent);
+    margin-bottom: 25px;
+    border-radius: 2px;
+}
+
+.detalle-descripcion {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.detalle-acciones {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-bg-soft);
+    
+    @include tablet-break {
+        margin-top: 20px; // Evita que se pegue al texto en mobile si el contenedor se achica
+    }
+}
+
+
+
+// @media (min-width: 768px) {
+//     .detalle-wrapper {
+//         flex-direction: row;
+//         align-items: stretch; // Hace que ambas columnas midan lo mismo de alto
+//         padding: 40px;
+//     }
+// }

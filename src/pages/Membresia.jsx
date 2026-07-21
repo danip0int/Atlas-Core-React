@@ -94,11 +94,31 @@ getDocs(consulta)
     <p>Cargando productos...</p>
 ) : (
   <>
-  <div className="btn-filter">
-    <button onClick={() => setCategoriaActiva("")}>Todos</button>
-    <button onClick={() => setCategoriaActiva("suplementos")}>Suplementos</button>
-    <button onClick={() => setCategoriaActiva("ropa")}>Ropa</button>
-    <button onClick={() => setCategoriaActiva("accesorios")}>Accesorios</button>
+  <div className="filtros-contenedor">
+    <button 
+        className={`filtro-btn ${categoriaActiva === "" ? "active" : ""}`}
+        onClick={() => setCategoriaActiva("")}
+    >
+        Todos
+    </button>
+    <button 
+        className={`filtro-btn ${categoriaActiva === "suplementos" ? "active" : ""}`}
+        onClick={() => setCategoriaActiva("suplementos")}
+    >
+        Suplementos
+    </button>
+    <button 
+        className={`filtro-btn ${categoriaActiva === "ropa" ? "active" : ""}`}
+        onClick={() => setCategoriaActiva("ropa")}
+    >
+        Ropa
+    </button>
+    <button 
+        className={`filtro-btn ${categoriaActiva === "accesorios" ? "active" : ""}`}
+        onClick={() => setCategoriaActiva("accesorios")}
+    >
+        Accesorios
+    </button>
 </div>
     <Swiper
   modules={[Pagination, Navigation]}

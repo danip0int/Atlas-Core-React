@@ -1,0 +1,81 @@
+@use "../base/variables" as *;
+@use "../utils/mixins" as *;
+
+
+.contador-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 140px; // Para que no quede un botón gigante estirado
+
+    @include mobile-break {
+        max-width: 100%; // En celular sí que ocupe todo el ancho
+    }
+}
+
+// Fila de controles (- cantidad +)
+.contador-controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-bg-soft);
+    border-radius: 8px; // Tu $radius-sm
+    padding: 5px;
+    border: 1px solid rgba(255, 252, 242, 0.1); // Un sutil borde floral-white traslúcido
+}
+
+// Botones de + y -
+.contador-btn-flecha {
+    background: none;
+    border: none;
+    color: var(--color-text-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease, opacity 0.2s ease;
+
+    &:hover:not(:disabled) {
+        color: var(--color-accent); // Se prende fuego en Spicy Paprika
+    }
+
+    &:disabled {
+        color: var(--color-text-muted);
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
+
+// El número del medio
+.contador-numero {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    user-select: none; // Evita que el usuario lo seleccione sin querer al clickear rápido
+}
+
+// Botón "Agregar al carrito"
+.contador-btn-agregar {
+    background-color: var(--color-accent); // Spicy Paprika de una
+    color: var(--color-text-main);
+    border: none;
+    border-radius: 8px; // Tu $radius-sm
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    
+    // Invocamos tu mixin de animación y levante
+    @include hover-lift(-3px, 1.01);
+
+    &:active {
+        transform: translateY(0) scale(0.98); // Efecto de hundido al clickear
+    }
+}

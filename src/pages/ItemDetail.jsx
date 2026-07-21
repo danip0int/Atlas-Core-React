@@ -28,18 +28,40 @@ function ItemDetail () {
     fetchProducto()
 }, [id])
 
-return(
-    <div>
-        {loading ? <p>Cargando detalles...</p> : 
-         <div>
-            <h2>{detalle.nombre}</h2>
-         <p>${detalle.precio.toLocaleString("es-AR")}</p>
-        <p>{detalle.descripcion}</p>
-        <ItemCount onAgregar={(cantidad) => agregarProducto({...detalle, cantidad})} />
-         </div>
-         }
+return (
+    <div className="detalle-container">
+        {loading ? (
+            <div className="detalle-loader">
+                <p>Cargando detalles del producto...</p>
+            </div>
+        ) : (
+            <div className="detalle-wrapper">
+                {/* Columna Izquierda: Imagen */}
+                <div className="detalle-imagen-box">
+                    <img 
+                        src={detalle.imagen || "https://placeholder.com"} 
+                        alt={detalle.nombre} 
+                        className="detalle-img"
+                    />
+                </div>
+
+                {/* Columna Derecha: Información */}
+                <div className="detalle-info-box">
+                    <span className="detalle-categoria">{detalle.categoria}</span>
+                    <h2 className="detalle-titulo">{detalle.nombre}</h2>
+                    <p className="detalle-precio">${detalle.precio?.toLocaleString("es-AR")}</p>
+                    <div className="detalle-divisor"></div>
+                    <p className="detalle-descripcion">{detalle.descripcion}</p>
+                    
+                    <div className="detalle-acciones">
+                        <ItemCount onAgregar={(cantidad) => agregarProducto({...detalle, cantidad})} />
+                    </div>
+                </div>
+            </div>
+        )}
     </div>
-)
+);
+
 }
 
 export default ItemDetail 

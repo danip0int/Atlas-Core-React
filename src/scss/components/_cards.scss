@@ -1,3 +1,4 @@
+@use "../base/variables" as *;
 @use "../utils/mixins" as *;
 
 .card {
@@ -62,6 +63,20 @@ border: 1px solid rgba(255, 255, 255, 0.02);
   .card-title {
     margin: 0;
   }
+.producto-link-detalle {
+    color: var(--color-accent); // Spicy Paprika de una
+    text-decoration: none; // Chau raya azul
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: color $transition-fast, transform $transition-fast;
+    display: inline-block;
+
+    &:hover {
+        color: var(--color-text-main); // Cambia a blanco al pasar el mouse
+        transform: translateX(4px); // Efecto sutil de empuje hacia la derecha
+    }
+}
 
 /*TEXTO OCULTO CARDS INDEX*/
 

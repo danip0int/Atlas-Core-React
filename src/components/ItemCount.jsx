@@ -13,14 +13,33 @@ function ItemCount({onAgregar}) {
         }
     };
     
-    return(
-        <div>
-            <button onClick={restar} disabled={cantidad === 1}>-</button>
-            <span>{cantidad}</span>
-            <button onClick={sumar}>+</button>
-            <button onClick={() => onAgregar(cantidad)}>Agregar</button>
+    return (
+    <div className="contador-container">
+        <div className="contador-controles">
+            <button 
+                className="contador-btn-flecha" 
+                onClick={restar} 
+                disabled={cantidad === 1}
+            >
+                -
+            </button>
+            <span className="contador-numero">{cantidad}</span>
+            <button 
+                className="contador-btn-flecha" 
+                onClick={sumar}
+            >
+                +
+            </button>
         </div>
-    )
+        <button 
+            className="contador-btn-agregar" 
+            onClick={() => onAgregar(cantidad)}
+        >
+            Agregar
+        </button>
+    </div>
+);
+
 }
 
 
