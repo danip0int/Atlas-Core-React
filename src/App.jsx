@@ -7,6 +7,7 @@ import Entrenamiento from "./pages/Entrenamiento";
 import Instalaciones from "./pages/Instalaciones";
 import Membresia from "./pages/Membresia";
 import Contacto from "./pages/Contacto";
+import Carrito from "./components/Carrito";
 import ItemDetail from "./pages/ItemDetail";
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/contacto" element={<Contacto/>}/>
         <Route path="/producto/:id" element={<ItemDetail />} />
       </Routes>
+       <Carrito/>
       <Footer/>
     </div>
   )

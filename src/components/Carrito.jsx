@@ -7,16 +7,14 @@ import { useNavigate } from 'react-router-dom'
 
 function Carrito() {
 
-    const {carrito, eliminarProducto, vaciarCarrito} = useContext(CarritoContext);
-    const total = carrito.reduce((acumulador, item) => acumulador + item.precio * item.cantidad, 0);
-    const [abierto, setAbierto] = useState(false)
+    const {carrito, eliminarProducto, vaciarCarrito, abierto, setAbierto, abrirCarrito} = useContext(CarritoContext);
+    const total = carrito.reduce((acumulador, item) => acumulador + item.precio * item.cantidad, 0)
     const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
     const [compra, setCompra] = useState(1)
     const [compraConfirmada, setCompraConfirmada] = useState(false)
     const [datosSuscripcion, setDatosSuscripcion] = useState(null)
     const navigate = useNavigate()
 
-console.log(abierto)
    return(
     <>  
         <button style={{display: abierto ? 'none' : 'flex'}} className="btn-toggle-carrito" onClick={() => setAbierto(!abierto)}>

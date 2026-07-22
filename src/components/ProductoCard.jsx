@@ -16,7 +16,7 @@ function ProductoCard({ producto }) {
       <p className="card-text">${producto.precio.toLocaleString("es-AR")}</p>
       <Link to={`/producto/${producto.id}`} className="producto-link-detalle">Ver detalle</Link>
 
-      <ItemCount onAgregar={(cantidad) => agregarProducto({...producto, cantidad})} />
+      <ItemCount onAgregar={(cantidad) => agregarProducto({...producto, cantidad})} stock={producto.stock} />
       </div>
     </div>
   )

@@ -3,9 +3,9 @@
 
 
 .detalle-container {
-    max-width: 1600px; // Usando tu medida máxima
+    max-width: 1600px; 
     margin: 0 auto;
-    padding: 140px 20px 60px 20px; // Un toque más de aire por la Navbar
+    padding: 140px 20px 60px 20px; 
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -19,8 +19,6 @@
     font-weight: 500;
     color: var(--color-text-muted);
 }
-
-// Estructura base: ESCRITORIO por defecto (flex-direction: row)
 .detalle-wrapper {
     display: flex;
     flex-direction: row;
@@ -31,10 +29,8 @@
     border-radius: 16px; // Tu $radius-md
     padding: 40px;
     
-    // Invocamos tu mixin de sombra personalizada
     @include soft-shadow(40px, 0.5); 
 
-    // Cuando baja a Tablet o menos, se apila en columna
     @include tablet-break {
         flex-direction: column;
         padding: 20px;
@@ -52,7 +48,6 @@
     overflow: hidden;
     padding: 20px;
     
-    // Invocamos tu mixin de levante y transición para la caja contenedora
     @include hover-lift(-4px, 1.01); 
 }
 
@@ -61,7 +56,7 @@
     max-width: 450px;
     height: auto;
     object-fit: cover;
-    border-radius: 8px; // Tu $radius-sm
+    border-radius: 8px;
 }
 
 .detalle-info-box {
@@ -87,7 +82,7 @@
     line-height: 1.2;
 
     @include mobile-break {
-        font-size: 1.8rem; // Achicamos el título en celular para que no rompa
+        font-size: 1.8rem; 
     }
 }
 
@@ -119,10 +114,25 @@
     border-top: 1px solid var(--color-bg-soft);
     
     @include tablet-break {
-        margin-top: 20px; // Evita que se pegue al texto en mobile si el contenedor se achica
+        margin-top: 20px;
     }
 }
 
+.stock-agotado {
+    color: var(--spicy-paprika);
+    font-weight: 700;
+}
+
+.stock-bajo {
+    color: var(--spicy-paprika);
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.stock-normal {
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
 
 
 // @media (min-width: 768px) {

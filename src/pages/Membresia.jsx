@@ -15,7 +15,7 @@ import { BsApple, BsHeartPulse, BsPhone, BsGraphUp } from 'react-icons/bs'
 function Membresia() {
 const [productos, setProductos] = useState([])
 const [loading, setLoading] = useState(true)
-const { agregarProducto } = useContext(CarritoContext)
+const { agregarProducto, abrirCarrito } = useContext(CarritoContext)
 const [categoriaActiva, setCategoriaActiva] = useState('')
 
 
@@ -55,7 +55,10 @@ getDocs(consulta)
                 <li>Clases grupales básicas</li>
                 <li>Uso de vestuarios</li>
               </ul>
-              <button className="btn-primary btn-plan" onClick={() => agregarProducto({ id: "plan-pro", nombre: "Plan PRO", precio: 52000 })}>Elegir plan</button>
+              <button className="btn-primary btn-plan" onClick={() => {
+  agregarProducto({ id: "plan-pro", nombre: "Plan PRO", precio: 52000 })
+  abrirCarrito()
+}}>Elegir plan</button>
             </article>
             <article className="plan-card plan-destacado">
               <header className="plan-header">
@@ -69,7 +72,9 @@ getDocs(consulta)
                 <li>Boxeo y entrenamiento guiado</li>
                 <li>Acceso a spa y vestuarios</li>
               </ul>
-              <button className="btn-primary btn-plan" onClick={() => agregarProducto({ id: "plan-atlas", nombre: "Plan ATLAS", precio: 70000 })}>Elegir plan</button>
+              <button className="btn-primary btn-plan" onClick={() => {agregarProducto({ id: "plan-atlas", nombre: "Plan ATLAS", precio: 70000 })
+            abrirCarrito()
+            }}>Elegir plan</button>
             </article>
             <article className="plan-card">
               <header className="plan-header">
@@ -82,7 +87,9 @@ getDocs(consulta)
                 <li>Clases exclusivas</li>
                 <li>Seguimiento mensual</li>
               </ul>
-              <button className="btn-primary btn-plan" onClick={() => agregarProducto({ id: "plan-premium", nombre: "Plan PREMIUM", precio: 60000 })}>Elegir plan</button>
+              <button className="btn-primary btn-plan" onClick={() => {agregarProducto({ id: "plan-premium", nombre: "Plan PREMIUM", precio: 60000 })
+            abrirCarrito()
+            }}>Elegir plan</button>
             </article>
           </div>
         </div>
@@ -179,9 +186,7 @@ getDocs(consulta)
           </div>
         </div>
       </section>
-      
       </section>
-<Carrito/>
     </main>
 )
 }
