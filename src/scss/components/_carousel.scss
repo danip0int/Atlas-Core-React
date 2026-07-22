@@ -85,6 +85,33 @@
   opacity: 0.85;
 }
 
+.productos-slider {
+  padding-bottom: 12rem;
+
+  .swiper-wrapper {
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    height: auto;
+    overflow: visible;
+  }
+
+  .swiper-pagination {
+    bottom: 0;
+    margin-bottom: 7rem;
+  }
+
+  .swiper-pagination-bullet {
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+}
+
 #carouselAtlas {
   max-width: 1800px;
   margin: 2rem auto 0;

@@ -37,11 +37,7 @@ return (
         ) : (
             <div className="detalle-wrapper">
                 <div className="detalle-imagen-box">
-                    <img 
-                        src={detalle.imagen || "https://placeholder.com"} 
-                        alt={detalle.nombre} 
-                        className="detalle-img"
-                    />
+                    <img className="detalle-imagen" src={detalle.imagen} alt={detalle.nombre} />
                 </div>
                 <div className="detalle-info-box">
                     <span className="detalle-categoria">{detalle.categoria}</span>
@@ -65,7 +61,7 @@ return (
             </div>
         )}
     </div>
-);
+)
 
 }
 

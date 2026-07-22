@@ -7,13 +7,13 @@
   flex-direction: column;
   position: relative;
   background: linear-gradient(
-  180deg,
-  rgba(64, 61, 57, 0.15) 0%,
-  rgba(58, 53, 49, 0.15) 100%
-);
-backdrop-filter: blur(2px);
--webkit-backdrop-filter: blur(2px);
-border: 1px solid rgba(255, 255, 255, 0.02);
+    180deg,
+    rgba(64, 61, 57, 0.15) 0%,
+    rgba(58, 53, 49, 0.15) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
   color: var(--color-text-main);
   border-radius: 22px;
   overflow: hidden;
@@ -44,16 +44,13 @@ border: 1px solid rgba(255, 255, 255, 0.02);
     transform: translateY(-6px);
     box-shadow:
       0 20px 45px rgba(0, 0, 0, 0.6),
-      0 0 0 10px rgba(235, 94, 40, 0.45);
-
-    .card-img-top {
-      transform: scale(1.05);
-    }
+      0 0 0 7px rgba(228, 88, 33, 0.678);
   }
   .card-img-top {
     height: 320px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    object-fit: contain;
+    background: #fff;
+    transition: transform 0.9s ease;
   }
   .card-text {
     overflow: hidden;
@@ -62,42 +59,46 @@ border: 1px solid rgba(255, 255, 255, 0.02);
 
   .card-title {
     margin: 0;
+    min-height: 2.6em;
+    display: flex;
+    align-items: center;
   }
-.producto-link-detalle {
-    color: var(--color-accent); // Spicy Paprika de una
-    text-decoration: none; // Chau raya azul
+  .producto-link-detalle {
+    color: var(--color-accent);
+    text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
-    transition: color $transition-fast, transform $transition-fast;
+    transition:
+      color $transition-fast,
+      transform $transition-fast;
     display: inline-block;
 
     &:hover {
-        color: var(--color-text-main); // Cambia a blanco al pasar el mouse
-        transform: translateX(4px); // Efecto sutil de empuje hacia la derecha
+      color: var(--color-text-main);
+      transform: translateX(4px);
     }
-}
+  }
 
-/*TEXTO OCULTO CARDS INDEX*/
+  /*TEXTO OCULTO CARDS INDEX*/
 
-.card-extra {
-  display: none;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  margin-top: 0.5rem;
-}
+  .card-extra {
+    display: none;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+  }
 
-.card-extra.visible {
-  display: block;
-}
-
+  .card-extra.visible {
+    display: block;
+  }
 
   /*RESPONSIVE*/
 
   @include desktop-break {
     height: auto;
     width: 350px;
-    
+
     .card-img-top {
       height: 240px;
     }

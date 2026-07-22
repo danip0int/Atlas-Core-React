@@ -10,7 +10,7 @@ function ProductoCard({ producto }) {
 
     return (
     <div className="card">
-      <img src="https://placehold.co/400x320" alt={producto.nombre} />
+      <img className="card-img-top" src={producto.imagen} alt={producto.nombre} />
       <div className="card-body">
         <h3 className="card-title">{producto.nombre}</h3>
       <p className="card-text">${producto.precio.toLocaleString("es-AR")}</p>

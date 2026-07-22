@@ -24,8 +24,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     justify-items: center;
-    padding-bottom: 6rem;
-
+    padding-bottom: 14rem;
   }
 
   .plan-card {
@@ -33,7 +32,6 @@
     max-width: 420px;
     position: relative;
     overflow: hidden;
-    
 
     color: var(--color-text);
     padding: 2.5rem 2rem;
@@ -75,13 +73,13 @@
     }
 
     &:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.03);
-  opacity: 0.9;
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-}
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.03);
+      opacity: 0.9;
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
 
     .plan-header {
       min-height: 70px;
@@ -204,9 +202,7 @@
 }
 
 .swiper {
-  padding-bottom: 4rem;
-  overflow: hidden;
-
+  overflow: visible;
   &-button-next,
   &-button-prev {
     color: var(--color-accent);
@@ -220,7 +216,7 @@
 
       &-img-top {
         height: 200px;
-        object-fit: cover;
+        object-fit: contain;
       }
 
       &-body {
@@ -237,50 +233,48 @@
 }
 
 .filtros-contenedor {
-     display: flex;
-    gap: 32px;
-    max-width: 1200px;
-    margin: 0 auto 40px auto; 
-    padding: 0 20px 12px 20px; 
-    border-bottom: 1px solid var(--color-bg-soft);
-    width: 100%;
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px 12px 20px;
+  border-bottom: 1px solid var(--color-bg-soft);
+  width: 100%;
 
-    @include mobile-break {
-        gap: 16px;
-        justify-content: space-between; 
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+  @include mobile-break {
+    gap: 16px;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
-
 
 .filtro-btn {
-    background: none;
-    border: none;
-    padding: 8px 0;
-    font-size: 0.80rem;
-    font-weight: 400;
-    color: var(--color-text-muted); // Gris apagado
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative; 
-    transition: color $transition-fast;
+  background: none;
+  border: none;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted); // Gris apagado
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color $transition-fast;
 
-    &:hover {
-        color: var(--color-text-main); 
+  &:hover {
+    color: var(--color-text-main);
+  }
+
+  &.active {
+    color: var(--color-text-main);
+    font-weight: 700;
+
+    &::after {
+      @include underline(100%, 3px, var(--color-accent));
     }
-
-    &.active {
-        color: var(--color-text-main);
-        font-weight: 700;
-
-        &::after {
-            @include underline(100%, 3px, var(--color-accent)); 
-        }
-    }
+  }
 }
-
 
 /*SECCIÓN BENEFICIOS*/
 
@@ -305,7 +299,6 @@
     text-align: center;
     margin-bottom: 3rem;
 
-
     h2 {
       font-size: 2rem;
       font-weight: 700;
@@ -322,7 +315,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
-  
   }
 
   .beneficio-item {
@@ -361,34 +353,36 @@
       font-size: 0.9rem;
       color: var(--color-muted);
       line-height: 1.5;
-    }.servicio-precio {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  margin-top: 0.5rem;
-}
+    }
+    .servicio-precio {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-top: 0.5rem;
+    }
 
-.btn-agregar {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1.4rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-accent);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: transparent;
-  color: var(--color-text-main);
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background $transition-fast, color $transition-fast;
+    .btn-agregar {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--color-accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: transparent;
+      color: var(--color-text-main);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition:
+        background $transition-fast,
+        color $transition-fast;
 
-  &:hover {
-    background: var(--color-accent);
-    color: #fff;
-  }
+      &:hover {
+        background: var(--color-accent);
+        color: #fff;
+      }
+    }
 
-}
-    
     &:hover {
       transform: translateY(-4px);
       background: rgba(255, 255, 255, 0.03);
@@ -551,14 +545,14 @@
 
     .beneficio-item {
       padding: 1.3rem 1rem;
-padding: 1.5rem 1.2rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+      padding: 1.5rem 1.2rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       i {
         font-size: 1.8rem;
       }

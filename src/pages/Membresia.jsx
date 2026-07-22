@@ -128,9 +128,10 @@ getDocs(consulta)
     </button>
 </div>
     <Swiper
+    className="productos-slider"
   modules={[Pagination, Navigation]}
   slidesPerView={3}
-  spaceBetween={20}
+  spaceBetween={5}
   pagination={{ clickable: true }}
   navigation={true}
   breakpoints={{
