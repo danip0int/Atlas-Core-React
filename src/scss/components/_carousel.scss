@@ -1,30 +1,9 @@
 @use "../utils/mixins" as *;
 
-// .container {
-//   max-width: 1680px;
-// }
-
-// .hero-carousel {
-//   padding-top: 60px;
-// }
-
-// /* === CARRUSEL === */
-
-// .container {
-//   max-width: 1380px;
-// }
-
 .swiper-slide {
   position: relative;
   height: 85vh;
   overflow: hidden;
-
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   inset: 0;
-  //   background: var(--color-overlay-dark);
-  // }
 
   img {
     width: 100%;
@@ -112,17 +91,6 @@
   }
 }
 
-#carouselAtlas {
-  max-width: 1800px;
-  margin: 2rem auto 0;
-  filter: drop-shadow(0 20px 60px rgba(73, 73, 73, 0.137));
-
-  .carousel-inner {
-    border-radius: 50px;
-    overflow: hidden;
-  }
-}
-
 @keyframes fadeup {
   to {
     opacity: 1;
@@ -130,44 +98,14 @@
   }
 }
 
-/* === CARRUSEL RESPONSIVE === */
-
-@include desktop-break {
-  .carousel-item {
-    height: 70vh;
-  }
-
-  .carousel-caption {
-    padding: 2rem;
-
-    h2 {
-      font-size: clamp(2.4rem, 4vw, 3rem);
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  #carouselAtlas {
-    max-width: 1500px;
-
-    .carousel-inner {
-      border-radius: 36px;
-    }
-  }
-}
+/* === HERO RESPONSIVE === */
 
 @include mobile-break {
-  .hero-carousel {
-    padding-top: 48px;
-  }
-
-  .carousel-item {
+  .swiper-slide {
     height: 60vh;
   }
 
-  .carousel-caption {
+  .swiper-caption {
     padding: 1.5rem;
 
     h2 {
@@ -179,15 +117,7 @@
     }
   }
 
-  .carousel-icon {
+  .swiper-icon {
     display: none;
-  }
-
-  #carouselAtlas {
-    margin-top: 1.2rem;
-
-    .carousel-inner {
-      border-radius: 24px;
-    }
   }
 }

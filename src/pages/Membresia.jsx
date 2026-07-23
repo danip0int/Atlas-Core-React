@@ -98,7 +98,7 @@ getDocs(consulta)
 <h2 className="membresias-header">Todo lo que necesitás para acompañar tu entrenamiento </h2>
           </header>
           {loading ? (
-    <p>Cargando productos...</p>
+    <p className="detalle-loader">Cargando productos...</p>
 ) : (
   <>
   <div className="filtros-contenedor">

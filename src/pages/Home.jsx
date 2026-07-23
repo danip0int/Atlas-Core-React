@@ -1,8 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import CardServicio from '../components/CardServicio'
+import { servicios } from '../data/servicios'
 import 'swiper/css'
 import img1 from '../assets/pechopoleas.webp'
 import img2 from '../assets/levantamientoconbarra.webp'
+import img3 from '../assets/entrenamientogym.webp'
 import imgFitness from '../assets/pesomuerto.webp'
 import imgMasajes from '../assets/masajesprevencion.png'
 import imgNutricion from '../assets/plannutricion.webp'
@@ -51,7 +54,7 @@ const contadorSatisfaccion = useContador(87)
 </SwiperSlide>
 <SwiperSlide>
             <img
-              src={img1}
+              src={img3}
               className="d-block w-100"
               alt="Mujer haciendo poleas cruzadas"
             />
@@ -89,84 +92,15 @@ const contadorSatisfaccion = useContador(87)
       <section className="section-title title-center">
         <h2>Todo para potenciar tu rendimiento</h2>
       </section>
-      <section className="cards-index py-5">
-        <div className="container px-4">
-          <div className="row align-items-stretch g-4">
-            <div className="col-md-4">
-              <div>
-                <div className="card">
-                  <img
-                    src={imgFitness}
-                    className="card-img-top"
-                    alt="ejercicio peso muerto"
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">FITNESS</h5>
-                    <p className="card-text">
-                      Entrenamientos personalizados para mejorar tu rendimiento.
-                    </p>
-                    <p className="card-extra">
-                      "Trabajamos con planes de entrenamiento periodizados,
-                      adaptados a tu nivel y objetivos. Contás con seguimiento
-                      de un entrenador certificado, acceso a equipamiento de
-                      última generación y ajustes mensuales según tu progreso."
-                    </p>
-                    <button className='btn-primary'>Ver más</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div>
-                <div className="card">
-                  <img
-                    src={imgMasajes}
-                    className="card-img-top"
-                    alt="hombre recibiendo masaje"
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">MASAJES</h5>
-                    <p className="card-text">
-                      Recuperación muscular y bienestar físico.
-                    </p>
-                    <p className="card-extra">
-                      "Ofrecemos masajes deportivos, de recuperación y
-                      descontracturantes. Ideales para reducir el dolor muscular
-                      post-entrenamiento, mejorar la circulación y acelerar tu
-                      recuperación entre sesiones."
-                    </p>
-                    <a href="#" className="btn-primary">Ver más</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div>
-                <div className="card">
-                  <img
-                    src={imgNutricion}
-                    className="card-img-top"
-                    alt="persona con suplemento en mano"
-                  />
-                  <div className="card-body text-center">
-                    <h5 className="card-title">NUTRICIÓN</h5>
-                    <p className="card-text">
-                      Planes alimenticios adaptados a tus objetivos.
-                    </p>
-                    <p className="card-extra">
-                      "Nuestros nutricionistas diseñan planes alimenticios
-                      personalizados según tu composición corporal y metas.
-                      Incluye seguimiento mensual, ajuste de macros y soporte
-                      por WhatsApp ante cualquier consulta."
-                    </p>
-                    <a href="#" className="btn-primary">Ver más</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <div className='container'>
+      <section className="servicios-grid">
+  {servicios.map(servicio => (
+    <div key={servicio.id}>
+      <CardServicio servicio={servicio} />
+    </div>
+  ))}
+</section>
+     </div>
       <section className="videos-index py-5">
         <div className="container">
           <section className="section-title">
