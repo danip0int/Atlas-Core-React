@@ -6,7 +6,10 @@ import ItemCount from "./ItemCount";
 
 function ProductoCard({ producto }) {
 
-  const {agregarProducto} = useContext(CarritoContext);
+  const {agregarProducto, carrito} = useContext(CarritoContext);
+
+  const enCarrito = carrito.find(item => item.id === producto.id);
+  const cantidadEnCarrito = enCarrito ? enCarrito.cantidad : 0;
 
     return (
     <div className="card">
@@ -16,7 +19,11 @@ function ProductoCard({ producto }) {
       <p className="card-text">${producto.precio.toLocaleString("es-AR")}</p>
       <Link to={`/producto/${producto.id}`} className="producto-link-detalle">Ver detalle</Link>
 
-      <ItemCount onAgregar={(cantidad) => agregarProducto({...producto, cantidad})} stock={producto.stock} />
+      <ItemCount 
+        onAgregar={(cantidad) => agregarProducto({...producto, cantidad})} 
+        stock={producto.stock} 
+        cantidadEnCarrito={cantidadEnCarrito}
+      />
       </div>
     </div>
   )

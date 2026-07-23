@@ -18,13 +18,13 @@ const carritoReducer = (state, action) => {
     if (existe) {
         return state.map( agregar => {
             if (agregar.id === existe.id ) {
-               return {...action.payload, cantidad: agregar.cantidad + 1};
+               return {...action.payload, cantidad: agregar.cantidad + action.payload.cantidad};
             }else{
                 return agregar;
             }
         } )
     } else{
-        return [...state, {...action.payload, cantidad: 1}];
+        return [...state, action.payload];
     }
      case 'ELIMINAR':
             return state.filter(item=> item.id !== action.payload.id);

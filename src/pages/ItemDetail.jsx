@@ -10,6 +10,8 @@ function ItemDetail () {
     const [detalle, setDetalle] = useState(null)
   const [loading, setLoading] = useState(true)
   const { agregarProducto } = useContext(CarritoContext)
+  const enCarrito = carrito.find(item => item.id === detalle.id);
+const cantidadEnCarrito = enCarrito ? enCarrito.cantidad : 0;
 
   const {id} = useParams()
 

@@ -1,24 +1,28 @@
 import { useState } from "react";
 
-function ItemCount({onAgregar, stock}) {
+function ItemCount({onAgregar, stock, cantidadEnCarrito = 0}) {
+
+    const disponible = stock - cantidadEnCarrito;
 
     const[cantidad, setCantidad] = useState(1)
+
     const sumar = () => {
-    if (cantidad < stock) {
-        setCantidad(cantidad + 1);
-    }
-};
+        if (cantidad < disponible) {
+            setCantidad(cantidad + 1);
+        }
+    };
+
     const restar = () => {
         if (cantidad > 1) {
             setCantidad(cantidad - 1);
         }
     };
 
-    if (stock === 0) {
-    return <p className="sin-stock">Sin stock</p>;
-}
+    if (disponible <= 0) {
+        return <p className="sin-stock">Sin stock</p>;
+    }
+
     return (
-        
     <div className="contador-container">
         <div className="contador-controles">
             <button 
@@ -32,7 +36,7 @@ function ItemCount({onAgregar, stock}) {
             <button 
                 className="contador-btn-flecha" 
                 onClick={sumar}
-                disabled={cantidad === stock}
+                disabled={cantidad === disponible}
             >
                 +
             </button>
@@ -40,6 +44,7 @@ function ItemCount({onAgregar, stock}) {
         <button 
             className="contador-btn-agregar" 
             onClick={() => onAgregar(cantidad)}
+            disabled={cantidad > disponible}
         >
             Agregar
         </button>
