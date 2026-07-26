@@ -1,6 +1,5 @@
 @use "../utils/mixins" as *;
 
-
 #stats {
   display: flex;
   justify-content: center;
@@ -16,7 +15,7 @@
 
     i {
       font-size: 2rem;
-      color: var(--spicy-paprika); // o el naranja de tu tema
+      color: var(--spicy-paprika);
     }
 
     span {
@@ -74,7 +73,6 @@
     }
   }
 }
-
 
 /* RESPONSIVE */
 

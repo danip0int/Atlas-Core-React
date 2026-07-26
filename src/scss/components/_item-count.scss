@@ -13,7 +13,6 @@
   }
 }
 
-// Fila de controles (- cantidad +)
 .contador-controles {
   display: flex;
   align-items: center;
@@ -24,7 +23,6 @@
   border: 1px solid rgba(255, 252, 242, 0.1);
 }
 
-// Botones de + y -
 .contador-btn-flecha {
   background: none;
   border: none;
@@ -42,7 +40,7 @@
     opacity 0.2s ease;
 
   &:hover:not(:disabled) {
-    color: var(--color-accent); // Se prende fuego en Spicy Paprika
+    color: var(--color-accent);
   }
 
   &:disabled {
@@ -52,20 +50,18 @@
   }
 }
 
-// El número del medio
 .contador-numero {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-text-main);
-  user-select: none; // Evita que el usuario lo seleccione sin querer al clickear rápido
+  user-select: none;
 }
 
-// Botón "Agregar al carrito"
 .contador-btn-agregar {
-  background-color: var(--color-accent); // Spicy Paprika de una
+  background-color: var(--color-accent);
   color: var(--color-text-main);
   border: none;
-  border-radius: 8px; // Tu $radius-sm
+  border-radius: 8px;
   padding: 8px 12px;
   font-size: 0.85rem;
   font-weight: 700;
@@ -73,10 +69,9 @@
   letter-spacing: 0.5px;
   cursor: pointer;
 
-  // Invocamos tu mixin de animación y levante
   @include hover-lift(-3px, 1.01);
 
   &:active {
-    transform: translateY(0) scale(0.98); // Efecto de hundido al clickear
+    transform: translateY(0) scale(0.98);
   }
 }

@@ -16,7 +16,7 @@ export const servicios = [
     titulo: 'MASAJES',
     imagen: imgMasajes,
     alt: 'hombre recibiendo masajes',
-    texto:'Recuperación muscular y para tu bienestar físico.',
+    texto:'Recuperación muscular y corporal para tu bienestar físico.',
     textoExtra: 'Ofrecemos masajes deportivos, de recuperación y descontracturantes. Ideales para reducir el dolor muscularpost-entrenamiento, mejorar la circulación y acelerar turecuperación entre sesiones.'
   },
   {
@@ -24,7 +24,7 @@ export const servicios = [
     titulo: 'NUTRICIÓN',
     imagen: imgNutricion,
     alt: 'persona con suplemento proteíco en mano',
-    texto: 'Planes alimenticios adaptados a tus objetivos.',
+    texto: 'Planes nutricionales adaptados a tu alimentación y  objetivos.',
     textoExtra:'Nuestros nutricionistas diseñan planes alimenticios personalizados según tu composición corporal y metas.Incluye seguimiento mensual, ajuste de macros y soportepor WhatsApp ante cualquier consulta.'
   }
 ]

@@ -9,14 +9,16 @@ import ItemCount from "../components/ItemCount";
 function ItemDetail () {
     const [detalle, setDetalle] = useState(null)
   const [loading, setLoading] = useState(true)
-  const { agregarProducto } = useContext(CarritoContext)
-  const enCarrito = carrito.find(item => item.id === detalle.id);
+  const [agregado, setAgregado] = useState(false)
+  const { agregarProducto, carrito } = useContext(CarritoContext)
+  const enCarrito = detalle ? carrito.find(item => item.id === detalle.id) : null;
 const cantidadEnCarrito = enCarrito ? enCarrito.cantidad : 0;
 
   const {id} = useParams()
 
   useEffect(() => {
     const fetchProducto = async () => {
+        setAgregado(false)
       const docRef = doc(db, 'productos', id)
       const docSnap = await getDoc(docRef)
 
@@ -57,7 +59,14 @@ return (
 )}
                     </div>
                     <div className="detalle-acciones">
-                        <ItemCount onAgregar={(cantidad) => agregarProducto({...detalle, cantidad})} stock={detalle.stock} />
+                        {agregado ? (
+    <p>Producto agregado en carrito.</p>
+) : (
+    <ItemCount onAgregar={(cantidad) => {
+agregarProducto({...detalle, cantidad});
+setAgregado(true);}} stock={detalle.stock} />
+
+)}
                     </div>
                 </div>
             </div>

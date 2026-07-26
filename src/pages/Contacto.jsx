@@ -104,13 +104,6 @@ function Contacto() {
           ></iframe>
         </div>
       </section>
-      {/* <div id="modal-contacto" class="modal-rutinas">
-  <div className="modal-contenido">
-    <button id="modal-contacto-cerrar" class="modal-cerrar">&times;</button>
-    <h3>¡Mensaje enviado! 💪</h3>
-    <p>Gracias <span id="modal-contacto-nombre"></span>, te respondemos a la brevedad en <span id="modal-contacto-email"></span>.</p>
-  </div>
-</div> */}
     </main>
   )
 }

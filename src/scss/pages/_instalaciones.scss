@@ -98,97 +98,97 @@
 .hero-copia {
   text-align: center;
 }
-@keyframes underlineIn {
-  to {
-    width: 100%;
-  }
-}
-@keyframes cambiarTexto {
-  0% {
-    content: "Fortalecé";
-    opacity: 0;
-  }
-  5% {
-    content: "Fortalecé";
-    opacity: 1;
-  }
-  15% {
-    content: "Fortalecé";
-    opacity: 1;
-  }
-  20% {
-    content: "Fortalecé";
-    opacity: 0;
-  }
+// @keyframes underlineIn {
+//   to {
+//     width: 100%;
+//   }
+// }
+// @keyframes cambiarTexto {
+//   0% {
+//     content: "Fortalecé";
+//     opacity: 0;
+//   }
+//   5% {
+//     content: "Fortalecé";
+//     opacity: 1;
+//   }
+//   15% {
+//     content: "Fortalecé";
+//     opacity: 1;
+//   }
+//   20% {
+//     content: "Fortalecé";
+//     opacity: 0;
+//   }
 
-  20.01% {
-    content: "Aprendé";
-    opacity: 0;
-  }
-  25% {
-    content: "Aprendé";
-    opacity: 1;
-  }
-  35% {
-    content: "Aprendé";
-    opacity: 1;
-  }
-  40% {
-    content: "Aprendé";
-    opacity: 0;
-  }
+//   20.01% {
+//     content: "Aprendé";
+//     opacity: 0;
+//   }
+//   25% {
+//     content: "Aprendé";
+//     opacity: 1;
+//   }
+//   35% {
+//     content: "Aprendé";
+//     opacity: 1;
+//   }
+//   40% {
+//     content: "Aprendé";
+//     opacity: 0;
+//   }
 
-  40.01% {
-    content: "Crecé";
-    opacity: 0;
-  }
-  45% {
-    content: "Crecé";
-    opacity: 1;
-  }
-  55% {
-    content: "Crecé";
-    opacity: 1;
-  }
-  60% {
-    content: "Crecé";
-    opacity: 0;
-  }
+//   40.01% {
+//     content: "Crecé";
+//     opacity: 0;
+//   }
+//   45% {
+//     content: "Crecé";
+//     opacity: 1;
+//   }
+//   55% {
+//     content: "Crecé";
+//     opacity: 1;
+//   }
+//   60% {
+//     content: "Crecé";
+//     opacity: 0;
+//   }
 
-  60.01% {
-    content: "Potenciate";
-    opacity: 0;
-  }
-  65% {
-    content: "Potenciate";
-    opacity: 1;
-  }
-  75% {
-    content: "Potenciate";
-    opacity: 1;
-  }
-  80% {
-    content: "Potenciate";
-    opacity: 0;
-  }
+//   60.01% {
+//     content: "Potenciate";
+//     opacity: 0;
+//   }
+//   65% {
+//     content: "Potenciate";
+//     opacity: 1;
+//   }
+//   75% {
+//     content: "Potenciate";
+//     opacity: 1;
+//   }
+//   80% {
+//     content: "Potenciate";
+//     opacity: 0;
+//   }
 
-  80.01% {
-    content: "Conocé tus límites";
-    opacity: 0;
-  }
-  85% {
-    content: "Conocé tus límites";
-    opacity: 1;
-  }
-  95% {
-    content: "Conocé tus límites";
-    opacity: 1;
-  }
-  100% {
-    content: "Conocé tus límites";
-    opacity: 0;
-  }
-}
+//   80.01% {
+//     content: "Conocé tus límites";
+//     opacity: 0;
+//   }
+//   85% {
+//     content: "Conocé tus límites";
+//     opacity: 1;
+//   }
+//   95% {
+//     content: "Conocé tus límites";
+//     opacity: 1;
+//   }
+//   100% {
+//     content: "Conocé tus límites";
+//     opacity: 0;
+//   }
+// }
 
 /*SECCIÓN GALERIA*/
 
@@ -277,33 +277,33 @@
         letter-spacing: 0.8px;
         text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         padding: 0.6rem 1.2rem;
-  background: rgba(0,0,0,0.20);
-  backdrop-filter: blur(2px);
-  border-radius: 8px;
-  transform: translateY(8px);
-  opacity: 0.9;
-  transition: all 0.45s ease;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(2px);
+        border-radius: 8px;
+        transform: translateY(8px);
+        opacity: 0.9;
+        transition: all 0.45s ease;
       }
     }
   }
 
   .descripcion {
-   margin-top: 1rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--color-text-main);
-  opacity: 0.85;
-  line-height: 1.6;
-  max-width: 95%;
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    opacity: 0.85;
+    line-height: 1.6;
+    max-width: 95%;
 
     &::before {
       content: "";
-  display: block;
-  width: 46px;
-  height: 3px;
-  background: var(--color-accent);
-  margin-bottom: 0.7rem;
-  opacity: 0.9;
+      display: block;
+      width: 46px;
+      height: 3px;
+      background: var(--color-accent);
+      margin-bottom: 0.7rem;
+      opacity: 0.9;
     }
   }
 }

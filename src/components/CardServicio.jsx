@@ -6,7 +6,7 @@ function CardServicio({servicio}) {
     const [expandir, setExpandir] = useState(false)
 
     return(
-        <div className="card">
+        <div className="card card-servicio">
             <img className="card-servicio-img" src={servicio.imagen} alt={servicio.alt} />
             <div className="card-body">
                 <h3 className="card-title">{servicio.titulo}</h3>
