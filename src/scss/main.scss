@@ -1,0 +1,36 @@
+@use "base/reset";
+@use "base/variables";
+@use "base/fonts";
+
+/* === UTILIDADES ===*/
+
+@use "utils/mixins";
+
+/* === LAYOUT === */
+
+@use "layout/navbar";
+@use "layout/footer";
+
+/*=== COMPONENTES ===*/
+
+@use "components/botones";
+@use "components/section-title";
+@use "components/carousel";
+@use "components/cards";
+@use "components/videos";
+@use "components/disciplinas";
+@use "components/stats";
+@use "components/galeria";
+@use "components/calculadora";
+@use "components/rutinas";
+@use "components/carrito";
+@use "components/horarios";
+@use "components/item-detail";
+@use "components/item-count";
+
+/* === PÁGINAS ===*/
+
+@use "pages/entrenamiento";
+@use "pages/instalaciones";
+@use "pages/membresia";
+@use "pages/contacto";

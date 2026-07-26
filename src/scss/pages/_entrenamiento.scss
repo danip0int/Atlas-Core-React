@@ -1,0 +1,182 @@
+@use "../utils/mixins" as *;
+
+.entrenamiento-wrapper {
+  max-width: 1500px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.img-entreno {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.35)
+    );
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.8);
+  }
+
+  &.img-1 {
+    z-index: 1;
+  }
+
+  &.img-2 {
+    margin-top: -120px;
+    z-index: 2;
+  }
+
+  &.img-3 {
+    margin-top: -85px;
+    z-index: 3;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  }
+}
+.entreno-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.entrenamientos h3 {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+.entrenamientos .col-md-5,
+.entrenamientos .col-md-4 {
+  padding-left: 2rem;
+}
+
+.entrenamientos h3::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: var(--color-accent);
+}
+
+/*RESPONSIVE*/
+
+@include tablet-break {
+  .entrenamientos {
+    .row {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col-md-7,
+    .col-md-5,
+    .col-md-8,
+    .col-md-4 {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    h3 {
+      margin-top: 1.2rem;
+    }
+
+    h3::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      max-width: 480px;
+      margin: 0.6rem auto 0;
+    }
+  }
+
+  .img-entreno {
+    height: 300px;
+    margin: 0 auto 1.4rem;
+  }
+
+  .img-entreno.img-2,
+  .img-entreno.img-3 {
+    margin-top: 0;
+    z-index: auto;
+  }
+}
+
+@include mobile-break {
+  .entrenamientos {
+    padding: 2.5rem 0;
+
+    .row {
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+
+    h3 {
+      margin-top: 1.2rem;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    p {
+      margin: 0.6rem auto 0;
+      text-align: center;
+    }
+  }
+
+  .img-entreno {
+    height: 180px;
+    margin-bottom: 1rem;
+  }
+
+  .img-entreno.img-2,
+  .img-entreno.img-3 {
+    margin-top: 0;
+    z-index: auto;
+  }
+
+  .entrenamiento-wrapper {
+    padding: 0 1.2rem;
+    margin-bottom: 0rem;
+  }
+}
